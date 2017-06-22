@@ -1,0 +1,97 @@
+
+
+document.write(' \
+<style type="text/css" media="screen">\
+	 .dsq-widget ul.dsq-widget-list {\
+	 padding: 0;\
+	 margin: 0;\
+	 text-align: left;\
+	 }\
+	 img.dsq-widget-avatar {\
+	 width: 32px;\
+	 height: 32px;\
+	 border: 0px;\
+	 margin: 0px;\
+	 padding: 0px 3px 3px 0px;\
+	 float: left;\
+	 }\
+	 a.dsq-widget-user {\
+	 font-weight: bold;\
+	 }\
+	 a.dsq-widget-thread {\
+	 font-weight: bold;\
+	 }\
+	 p.dsq-widget-meta {\
+	 clear: both;\
+	 font-size: 80%;\
+	 padding: 0;\
+	 margin: 0;\
+	 }\
+	 li.dsq-widget-item {\
+	 margin: 15px 0;\
+	 list-style-type: none;\
+	 clear: both;\
+	 }\
+	 span.dsq-widget-clout {\
+	 padding: 0 2px;\
+	 background-color: #ff7300;\
+	 color: #fff;\
+	 }\
+	 table.dsq-widget-horiz td {\
+	 padding-right: 15px;\
+	 }\
+	 .dsq-widget-comment p {\
+	 display: inline;\
+	 }\
+	 </style>\
+	 <ul class="dsq-widget-list">\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/yi_chien_hsu/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/25119/2700/avatar92.jpg?1494385704"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/yi_chien_hsu/">Yi-chien Hsu</a>\
+	 <span class="dsq-widget-comment"><p>非常感謝您</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2016/01/20/190112">[Tips] Visual Studio 使用經驗及技巧 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2016/01/20/190112#comment-3297543982">1 month ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p>滑鼠右鍵叫出選單，在點一下紅框部分即可取消...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2016/01/20/190112">[Tips] Visual Studio 使用經驗及技巧 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2016/01/20/190112#comment-3294234113">1 month ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/yi_chien_hsu/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/25119/2700/avatar92.jpg?1494385704"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/yi_chien_hsu/">Yi-chien Hsu</a>\
+	 <span class="dsq-widget-comment"><p>你好，想請問我的ozcode int 偵錯顯示變成16進制，不知道怎麼改回數字顯示，感謝</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2016/01/20/190112">[Tips] Visual Studio 使用經驗及技巧 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2016/01/20/190112#comment-3293833920">1 month ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p>你好，建議可以先參考先前的文章...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2015/10/22/153655">[ASP Net MVC] 調整 MvcSiteMapProvider 快取機制 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2015/10/22/153655#comment-3093751466">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/wasichris/"><img class="dsq-widget-avatar" src="https://c.disquscdn.com/uploads/users/18452/8272/avatar92.jpg?1497249577"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/wasichris/">chris</a>\
+	 <span class="dsq-widget-comment"><p>很開心能夠幫助到你</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2015/06/07/151505">[Tips][C#] 正確重拋例外 (Exception) 的方式 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2015/06/07/151505#comment-3093514324">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_2OlU1nEtkY/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/1496872724/images/noavatar92.png"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_2OlU1nEtkY/">Howard Chen</a>\
+	 <span class="dsq-widget-comment"><p>解釋得很清楚，真心感謝您的分享！</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2015/06/07/151505">[Tips][C#] 正確重拋例外 (Exception) 的方式 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2015/06/07/151505#comment-3091991501">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <a href="https://disqus.com/by/disqus_qyzAyVH9Sp/"><img class="dsq-widget-avatar" src="//a.disquscdn.com/1496872724/images/noavatar92.png"></a>\
+	 <a class="dsq-widget-user" href="https://disqus.com/by/disqus_qyzAyVH9Sp/">宋季煊</a>\
+	 <span class="dsq-widget-comment"><p>大大您好，我照著您的內容實作了一個會依照資料庫設定權限產生Sitemap，但是在...</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://dotblogs.com.tw/wasichris/2015/10/22/153655">[ASP Net MVC] 調整 MvcSiteMapProvider 快取機制 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://dotblogs.com.tw/wasichris/2015/10/22/153655#comment-3091736855">5 months ago</a></p>\
+	 </li>\
+	 <li class="dsq-widget-item">\
+	 <img class="dsq-widget-avatar" src="//a.disquscdn.com/1496872724/images/noavatar92.png">\
+	 wellxion\
+	 <span class="dsq-widget-comment"><p>這些cache只有呼叫的該站台能存取到嗎?</p></span>\
+	 <p class="dsq-widget-meta"><a href="https://www.dotblogs.com.tw/wasichris/2015/11/14/153922">[C#] 初探 MemoryCache 及使用方式介紹 | 搞搞就懂 - 點部落</a>&nbsp;&middot;&nbsp;<a href="https://www.dotblogs.com.tw/wasichris/2015/11/14/153922#comment-2397790369">1 year ago</a></p>\
+	 </li>\
+	 </ul>\
+');
