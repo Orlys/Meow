@@ -36,7 +36,7 @@ namespace Viyrex.ML.Parsers
             => Regex.Matches(opening, attribute_regular, option)
                     .Cast<Match>()
                     .Select(k => (k.Groups["key"].Value, k.Groups["value"].Value))
-                    .ToList();
+                    .ToList(); 
 
         internal static string ResolveDoctype(this string htmlCode)
             => htmlCode.IsMatch(doctype_regular, out var m) ? m.Groups["info"].Value : string.Empty;
