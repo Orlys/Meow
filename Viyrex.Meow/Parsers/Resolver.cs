@@ -92,16 +92,16 @@ namespace Viyrex.ML.Parsers
         */
 
     }
-    public class LinqIt
+    public class Resolver
     {
-        static LinqIt()
+        static Resolver()
             => Regex.CacheSize = 30;
         
 
-        public static LinqIt Load(string htmlCode)
-            => new LinqIt(htmlCode ?? throw new ArgumentNullException(nameof(htmlCode)));
+        public static Resolver Load(string htmlCode)
+            => new Resolver(htmlCode ?? throw new ArgumentNullException(nameof(htmlCode)));
         private readonly List<string> Elements;
-        private LinqIt(string htmlCode)
+        private Resolver(string htmlCode)
         { 
             this.HtmlCode = htmlCode;
             this.Elements = new List<string>(this.HtmlCode.SplitElement());
