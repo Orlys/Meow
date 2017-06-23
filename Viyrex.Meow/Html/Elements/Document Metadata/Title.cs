@@ -1,4 +1,4 @@
-﻿namespace Viyrex.ML.Html.Elements.Document_Metadata
+﻿namespace Viyrex.Meow.Html.Elements.Document_Metadata
 {
     public sealed class Title : ElementBase
     {

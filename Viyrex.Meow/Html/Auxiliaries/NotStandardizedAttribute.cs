@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Viyrex.ML.Html.Auxiliaries
+namespace Viyrex.Meow.Html.Auxiliaries
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
     sealed class NotStandardizedAttribute : Attribute

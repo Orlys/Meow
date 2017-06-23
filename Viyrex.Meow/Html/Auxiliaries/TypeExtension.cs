@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Viyrex.ML.Html.Auxiliaries
+namespace Viyrex.Meow.Html.Auxiliaries
 {
 }

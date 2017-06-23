@@ -1,8 +1,8 @@
 ﻿#pragma warning disable 809
 using System;
-using Viyrex.ML.Html.Auxiliaries;
+using Viyrex.Meow.Html.Auxiliaries;
 
-namespace Viyrex.ML.Html.Elements
+namespace Viyrex.Meow.Html.Elements
 {
     public sealed class Object : ElementBase
     {

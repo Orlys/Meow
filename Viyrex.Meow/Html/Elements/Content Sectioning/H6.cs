@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Viyrex.ML.Html.Elements
+namespace Viyrex.Meow.Html.Elements
 {
     public sealed class H6 : ElementBase
     {

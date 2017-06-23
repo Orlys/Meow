@@ -5,9 +5,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using Viyrex.ML.Html.Elements;
+using Viyrex.Meow.Html.Elements;
 
-namespace Viyrex.ML.Parsers
+namespace Viyrex.Meow.Parsers
 {
 
     internal static class ResolveCore

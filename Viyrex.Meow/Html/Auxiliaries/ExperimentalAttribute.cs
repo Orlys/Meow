@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Viyrex.ML.Html.Auxiliaries
+namespace Viyrex.Meow.Html.Auxiliaries
 {
     /// <summary>
     /// This is an experimental API that should not be used in production code.

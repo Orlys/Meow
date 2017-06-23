@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Viyrex.ML.Html.Elements
+namespace Viyrex.Meow.Html.Elements
 {
     [Obsolete]
     public sealed class Font : ElementBase

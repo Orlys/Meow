@@ -1,7 +1,7 @@
 ﻿using System;
-using Viyrex.ML.Html.Auxiliaries;
+using Viyrex.Meow.Html.Auxiliaries;
 
-namespace Viyrex.ML.Html.Elements.Forms
+namespace Viyrex.Meow.Html.Elements.Forms
 {
     public sealed class Input : ElementBase
     {

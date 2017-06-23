@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Viyrex.ML.Html.Elements
+namespace Viyrex.Meow.Html.Elements
 {
     public abstract class CollectionBase : IEnumerable<(string Key,string Value)>
     {

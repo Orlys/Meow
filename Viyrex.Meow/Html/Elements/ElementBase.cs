@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Reflection;
-using Viyrex.ML.Html.Auxiliaries;
+using Viyrex.Meow.Html.Auxiliaries;
 using System.Diagnostics;
-namespace Viyrex.ML.Html.Elements
+namespace Viyrex.Meow.Html.Elements
 {
    
 

@@ -1,7 +1,7 @@
 ﻿using System;
-using Viyrex.ML.Html.Auxiliaries;
+using Viyrex.Meow.Html.Auxiliaries;
 
-namespace Viyrex.ML.Html.Elements.Document_Metadata
+namespace Viyrex.Meow.Html.Elements.Document_Metadata
 {
     public sealed class Style : ElementBase
     {
