@@ -1,9 +1,9 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Auxiliaries
+﻿namespace Meow.Html.Auxiliaries
 {
+    using System;
+
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
-    sealed class OriginalAttribute : Attribute
+    internal sealed class OriginalAttribute : Attribute
     {
         private readonly string original;
 

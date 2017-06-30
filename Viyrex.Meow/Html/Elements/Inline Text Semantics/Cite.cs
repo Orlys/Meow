@@ -1,8 +1,11 @@
-﻿namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Cite : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
-    }
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Cite Element
+    /// </summary>
+    public sealed class Cite : NormalElementBase
+    {
+    }
 }

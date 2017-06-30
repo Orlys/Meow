@@ -1,10 +1,13 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Center Element
+    /// </summary>
     [Deprecated]
-    public sealed class Center : ElementBase
+    public sealed class Center : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

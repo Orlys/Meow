@@ -1,16 +1,16 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Li : ElementBase
-    {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
-        
-        public string Value { get; set; }
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Li Element
+    /// </summary>
+    public sealed class Li : RequireElementBase
+    {
         [Deprecated]
         public string Type { get; set; }
-        
-        
+
+        public string Value { get; set; }
     }
 }

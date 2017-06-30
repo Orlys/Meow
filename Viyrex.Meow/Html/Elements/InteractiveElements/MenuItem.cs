@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class MenuItem : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// MenuItem Element
+    /// </summary>
+    public sealed class MenuItem : EmptyElementBase
+    {
         public string Check { get; set; }
 
         public string Command { get; set; }
@@ -17,6 +20,5 @@
         public string RadioGroup { get; set; }
 
         public string Type { get; set; }
-
     }
 }

@@ -1,8 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Ruby : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
-    }
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Ruby Element
+    /// </summary>
+    public sealed class Ruby : NormalElementBase
+    {
+    }
 }

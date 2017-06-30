@@ -1,9 +1,9 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Auxiliaries
+﻿namespace Meow.Html.Auxiliaries
 {
+    using System;
+
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
-    sealed class NotStandardizedAttribute : Attribute
+    internal sealed class NotStandardizedAttribute : Attribute
     {
     }
 }

@@ -1,12 +1,14 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    [Deprecated]
-    public sealed class Keygen : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Keygen Element
+    /// </summary>
+    [Deprecated]
+    public sealed class Keygen : EmptyElementBase
+    {
         public string AutoFocus { get; set; }
 
         public string Challenge { get; set; }
@@ -18,6 +20,5 @@ namespace Viyrex.Meow.Html.Elements
         public string KeyType { get; set; }
 
         public string Name { get; set; }
-
     }
 }

@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Address : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Address Element
+    /// </summary>
+    public sealed class Address : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

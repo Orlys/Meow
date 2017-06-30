@@ -1,23 +1,24 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Source : ElementBase
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Source Element
+    /// </summary>
+    public sealed class Source : EmptyElementBase
     {
-        public override ElementType ElementType => ElementType.Empty;
+        [Experimental]
+        public string Media { get; set; }
 
         [Experimental]
         public string Sizes { get; set; }
-        
+
         public string Src { get; set; }
 
         [Experimental]
         public string SrcSet { get; set; }
 
         public string Type { get; set; }
-
-        [Experimental]
-        public string Media { get; set; }
     }
 }

@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Nav : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Nav Element
+    /// </summary>
+    public sealed class Nav : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

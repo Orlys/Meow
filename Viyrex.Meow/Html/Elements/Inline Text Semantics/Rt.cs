@@ -1,8 +1,11 @@
-﻿namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Rt : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
-    }
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Rt Element
+    /// </summary>
+    public sealed class Rt : NormalElementBase
+    {
+    }
 }

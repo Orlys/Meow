@@ -1,20 +1,21 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements.Document_Metadata
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Style : ElementBase
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Style Element
+    /// </summary>
+    public sealed class Style : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
-
-        public string Type { get; set; }
-
         public string Media { get; set; }
-
-        public new string Title { get; set; }
 
         [Obsolete]
         [NotStandardized]
         public string Scoped { get; set; }
+
+        public new string Title { get; set; }
+        public string Type { get; set; }
     }
 }

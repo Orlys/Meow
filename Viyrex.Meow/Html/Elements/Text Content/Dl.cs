@@ -1,11 +1,13 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Dl : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Dl Element
+    /// </summary>
+    public sealed class Dl : NormalElementBase
+    {
         [NotStandardized]
         public string Compact { get; set; }
     }

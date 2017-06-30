@@ -1,26 +1,28 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Table : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Table Element
+    /// </summary>
+    public sealed class Table : NormalElementBase
+    {
         [Deprecated]
         public string Align { get; set; }
 
         [Deprecated]
         public string BgColor { get; set; }
-        
+
         [Deprecated]
         public string Border { get; set; }
-        
+
         [Deprecated]
         public string CellPadding { get; set; }
 
         [Deprecated]
         public string CellSpacing { get; set; }
-        
+
         [Deprecated]
         public string Frame { get; set; }
 

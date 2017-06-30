@@ -1,12 +1,14 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class TFoot : ElementBase
-    {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// TFoot Element
+    /// </summary>
+    public sealed class TFoot : RequireElementBase
+    {
         [Obsolete]
         [Deprecated]
         public string Align { get; set; }

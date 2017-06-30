@@ -1,8 +1,11 @@
-﻿namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Br : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
-    }
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Br Element
+    /// </summary>
+    public sealed class Br : EmptyElementBase
+    {
+    }
 }

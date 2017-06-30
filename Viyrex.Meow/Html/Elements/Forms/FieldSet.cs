@@ -1,11 +1,12 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class FieldSet : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// FieldSet Element
+    /// </summary>
+    public sealed class FieldSet : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
-        
         public string Disabled { get; set; }
 
         public string Form { get; set; }

@@ -1,11 +1,13 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Canvas : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Canvas Element
+    /// </summary>
+    public sealed class Canvas : NormalElementBase
+    {
         public string Height { get; set; }
 
         [NotStandardized]

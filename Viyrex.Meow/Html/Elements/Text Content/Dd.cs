@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Dd : ElementBase
-    {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Dd Element
+    /// </summary>
+    public sealed class Dd : RequireElementBase
+    {
         public string NoWrap { get; set; }
     }
 }

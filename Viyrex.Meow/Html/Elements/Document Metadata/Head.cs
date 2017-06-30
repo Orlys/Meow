@@ -1,11 +1,13 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Head : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Head Element
+    /// </summary>
+    public sealed class Head : NormalElementBase
+    {
         [Obsolete]
         public string Profile { get; set; }
     }

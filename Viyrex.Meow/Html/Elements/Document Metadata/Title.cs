@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements.Document_Metadata
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Title : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Title Element
+    /// </summary>
+    public sealed class Title : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

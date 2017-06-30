@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Figcaption : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Figcaption Element
+    /// </summary>
+    public sealed class Figcaption : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

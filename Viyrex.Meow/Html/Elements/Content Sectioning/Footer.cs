@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Footer : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Footer Element
+    /// </summary>
+    public sealed class Footer : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

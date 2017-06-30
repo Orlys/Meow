@@ -1,10 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Dialog : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Dialog Element
+    /// </summary>
+    public sealed class Dialog : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
-
         public string Open { get; set; }
-
     }
 }

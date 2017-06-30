@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Output : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Output Element
+    /// </summary>
+    public sealed class Output : NormalElementBase
+    {
         public string For { get; set; }
 
         public string Form { get; set; }

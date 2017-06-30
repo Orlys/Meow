@@ -1,8 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Small : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
-    }
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Small Element
+    /// </summary>
+    public sealed class Small : NormalElementBase
+    {
+    }
 }

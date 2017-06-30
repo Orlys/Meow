@@ -1,12 +1,14 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Td : ElementBase
-    {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Td Element
+    /// </summary>
+    public sealed class Td : RequireElementBase
+    {
         [Obsolete]
         public string Abbr { get; set; }
 
@@ -16,7 +18,7 @@ namespace Viyrex.Meow.Html.Elements
 
         [Obsolete]
         public string Axis { get; set; }
-        
+
         [NotStandardized]
         public string BgColor { get; set; }
 
@@ -29,7 +31,7 @@ namespace Viyrex.Meow.Html.Elements
         public string CharOff { get; set; }
 
         public string ColSpan { get; set; }
-        
+
         public string Headers { get; set; }
 
         public string RowSpan { get; set; }

@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    [Obsolete]
-    public sealed class Font : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Font Element
+    /// </summary>
+    [Obsolete]
+    public sealed class Font : NormalElementBase
+    {
         public string Color { get; set; }
 
         public string Face { get; set; }

@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class NoScript : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// NoScript Element
+    /// </summary>
+    public sealed class NoScript : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

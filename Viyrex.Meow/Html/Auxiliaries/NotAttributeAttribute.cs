@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Viyrex.Meow.Html.Auxiliaries
+﻿namespace Meow.Html.Auxiliaries
 {
+    using System;
+
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class NotAttributeAttribute : Attribute
     {

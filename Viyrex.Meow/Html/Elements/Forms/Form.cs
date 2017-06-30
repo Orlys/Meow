@@ -1,12 +1,14 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Form : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Form Element
+    /// </summary>
+    public sealed class Form : NormalElementBase
+    {
         [Obsolete]
         public string Accept { get; set; }
 

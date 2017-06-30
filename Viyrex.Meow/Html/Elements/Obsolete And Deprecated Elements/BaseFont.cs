@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// BaseFont Element
+    /// </summary>
     [Obsolete]
-    public sealed class BaseFont : ElementBase
+    public sealed class BaseFont : EmptyElementBase
     {
-        public override ElementType ElementType => ElementType.Empty;
-        
         public string Color { get; set; }
 
         public string Face { get; set; }

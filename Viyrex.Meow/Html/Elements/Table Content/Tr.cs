@@ -1,12 +1,14 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Tr : ElementBase
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Tr Element
+    /// </summary>
+    public sealed class Tr : RequireElementBase
     {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
-        
         [Obsolete]
         [Deprecated]
         public string Align { get; set; }

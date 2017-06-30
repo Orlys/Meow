@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Aside : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Aside Element
+    /// </summary>
+    public sealed class Aside : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

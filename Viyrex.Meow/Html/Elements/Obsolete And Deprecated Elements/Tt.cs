@@ -1,10 +1,13 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Tt Element
+    /// </summary>
     [Obsolete]
-    public sealed class Tt : ElementBase
+    public sealed class Tt : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

@@ -1,16 +1,17 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Button : ElementBase
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Button Element
+    /// </summary>
+    public sealed class Button : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
-
-        public string AutoFocus { get; set; }
-
         [NotStandardized]
         public string AutoComplete { get; set; }
 
+        public string AutoFocus { get; set; }
         public string Disabled { get; set; }
 
         public string Form { get; set; }

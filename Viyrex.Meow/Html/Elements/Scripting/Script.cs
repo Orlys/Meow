@@ -1,11 +1,13 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Script : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Script Element
+    /// </summary>
+    public sealed class Script : NormalElementBase
+    {
         public string Async { get; set; }
 
         public string CrossOrigin { get; set; }

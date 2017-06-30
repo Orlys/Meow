@@ -1,21 +1,18 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Meter : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Meter Element
+    /// </summary>
+    public sealed class Meter : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
-
-        public string Value { get; set; }
-
-        public string Min { get; set; }
-
-        public string Max { get; set; }
-
-        public string Low { get; set; }
-
-        public string High { get; set; }
-
-        public string Optimum { get; set; }
-
         public string Form { get; set; }
+        public string High { get; set; }
+        public string Low { get; set; }
+        public string Max { get; set; }
+        public string Min { get; set; }
+        public string Optimum { get; set; }
+        public string Value { get; set; }
     }
 }

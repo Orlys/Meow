@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    [Obsolete]
-    public sealed class Applet : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Applet Element
+    /// </summary>
+    [Obsolete]
+    public sealed class Applet : NormalElementBase
+    {
         public string Align { get; set; }
 
         public string Alt { get; set; }

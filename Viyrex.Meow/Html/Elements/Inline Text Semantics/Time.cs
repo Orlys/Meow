@@ -1,10 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Time : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Time Element
+    /// </summary>
+    public sealed class Time : NormalElementBase
+    {
         public string DateTime { get; set; }
     }
-
 }

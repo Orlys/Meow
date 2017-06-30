@@ -1,7 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Section : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Section Element
+    /// </summary>
+    public sealed class Section : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

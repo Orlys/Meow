@@ -1,19 +1,21 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Pre : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Pre Element
+    /// </summary>
+    public sealed class Pre : NormalElementBase
+    {
         [Obsolete]
         [NotStandardized]
         public string Cols { get; set; }
 
         [Obsolete]
         public string Width { get; set; }
-        
+
         [NotStandardized]
         public string Wrap { get; set; }
     }

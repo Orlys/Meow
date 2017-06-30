@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Viyrex.Meow.Html.Auxiliaries
+﻿namespace Meow.Html.Auxiliaries
 {
+    using System;
+
     /// <summary>
     /// This is an experimental API that should not be used in production code.
     /// </summary>

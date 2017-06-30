@@ -1,10 +1,13 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Acronym Element
+    /// </summary>
     [Obsolete]
-    public sealed class Acronym : ElementBase
+    public sealed class Acronym : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

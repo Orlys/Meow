@@ -1,12 +1,15 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Blink Element
+    /// </summary>
     [Obsolete]
     [Deprecated]
-    public sealed class Blink : ElementBase
+    public sealed class Blink : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
     }
 }

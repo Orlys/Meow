@@ -1,11 +1,13 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Hr : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Hr Element
+    /// </summary>
+    public sealed class Hr : EmptyElementBase
+    {
         [Deprecated]
         public string Align { get; set; }
 
@@ -20,6 +22,5 @@ namespace Viyrex.Meow.Html.Elements
 
         [Deprecated]
         public string Width { get; set; }
-        
     }
 }

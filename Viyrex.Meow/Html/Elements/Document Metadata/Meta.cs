@@ -1,13 +1,14 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Meta : ElementBase
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Meta Element
+    /// </summary>
+    public sealed class Meta : EmptyElementBase
     {
-        public override ElementType ElementType => ElementType.Empty;
-
         public string CharSet { get; set; }
-
         public string Content { get; set; }
 
         public string Http_Equiv { get; set; }

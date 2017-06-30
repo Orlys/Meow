@@ -1,8 +1,11 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Wbr : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
-    }
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Wbr Element
+    /// </summary>
+    public sealed class Wbr : EmptyElementBase
+    {
+    }
 }

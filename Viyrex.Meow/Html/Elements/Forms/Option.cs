@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Option : ElementBase
-    {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Option Element
+    /// </summary>
+    public sealed class Option : RequireElementBase
+    {
         public string Disable { get; set; }
 
         public string Label { get; set; }

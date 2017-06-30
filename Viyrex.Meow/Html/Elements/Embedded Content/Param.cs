@@ -1,11 +1,13 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Param : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Param Element
+    /// </summary>
+    public sealed class Param : EmptyElementBase
+    {
         public string Name { get; set; }
 
         [Obsolete]

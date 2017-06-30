@@ -1,11 +1,13 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class P : ElementBase
-    {
-        public override ElementType ElementType => ElementType.RequireOpeningTag;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// P Element
+    /// </summary>
+    public sealed class P : RequireElementBase
+    {
         [Obsolete]
         public string Align { get; set; }
     }

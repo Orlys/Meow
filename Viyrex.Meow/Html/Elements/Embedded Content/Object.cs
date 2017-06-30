@@ -1,13 +1,14 @@
-﻿#pragma warning disable 809
-using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Object : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Object Element
+    /// </summary>
+    public sealed class Object : NormalElementBase
+    {
         [Obsolete]
         public string Archive { get; set; }
 
@@ -23,14 +24,14 @@ namespace Viyrex.Meow.Html.Elements
 
         [Obsolete]
         public string CodeType { get; set; }
-        
+
         public new string Data { get; set; }
 
         [Obsolete]
         public string Declare { get; set; }
 
         public string Form { get; set; }
-        
+
         public string Height { get; set; }
 
         public string Name { get; set; }
@@ -50,4 +51,3 @@ namespace Viyrex.Meow.Html.Elements
         public string Width { get; set; }
     }
 }
-#pragma warning restore

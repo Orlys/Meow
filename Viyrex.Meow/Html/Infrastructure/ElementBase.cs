@@ -1,76 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
-using System.Reflection;
-using Viyrex.Meow.Html.Auxiliaries;
-using System.Diagnostics;
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Infrastructure
 {
-   
+    using Meow.Html.Auxiliaries;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
 
     public abstract class ElementBase
     {
-        public class DataAttribute : CollectionBase
-        {
-            public DataAttribute() : base()
-            {
-
-            }
-        }
-
-        [NotAttribute]
-        public virtual string ElementContent { get; set; }
-
-        [NotAttribute]
-        public abstract ElementType ElementType { get; }
-
-        [NotAttribute]
-        public virtual string ElementName { get; set; }
-        
         protected ElementBase()
         {
             this.ElementName = this.GetType().Name;
             this.Data = new DataAttribute();
         }
 
-        public string ConvertToHtml()
-        {
-            throw new NotImplementedException();
-        }
+        /// <summary>
+        /// Element's content
+        /// </summary>
+        [NotAttribute]
+        public virtual string ElementContent { get; set; }
 
-        public IEnumerable<(string Key,string Value)> GetAttributes()
-        {
-            foreach (var prop in this.GetType()
-                                        .GetRuntimeProperties()
-                                        .Where(x => x.GetCustomAttribute<NotAttributeAttribute>() == null))
-            {
-                var value = prop.GetValue(this);
-                switch (value)
-                {
-                    case string s:
-                        yield return (prop.Name, value.ToString());
-                        break;
-                    case CollectionBase cb:
-                        foreach(var c in cb)
-                            yield return c;
-                        break;
+        /// <summary>
+        /// Element's name
+        /// </summary>
+        [NotAttribute]
+        public virtual string ElementName { get; set; }
 
-                    case null:
-                    default:
-                        break;
-                }
-            }
-            yield break;
-        }
-
+        /// <summary>
+        /// Element's attribute indexer
+        /// </summary>
+        /// <param name="attributeName"></param>
+        /// <returns></returns>
         [NotAttribute]
         public string this[string attributeName]
         {
             get
             {
                 var n = attributeName.ToLower();
-                if (new string(n.Take(5).ToArray()).Replace("_", "-") == "data-")
+                if (n.Length > 5 && n.Substring(0, 5).Replace("_", "-") == "data-")
                     return this.Data[n];
                 else
                     return this.GetType()
@@ -82,7 +49,7 @@ namespace Viyrex.Meow.Html.Elements
             set
             {
                 var n = attributeName.ToLower();
-                if (new string(n.Take(5).ToArray()).Replace("_","-") == "data-")
+                if (n.Length > 5 && n.Substring(0, 5).Replace("_", "-") == "data-")
                     this.Data[n] = value;
                 else
                     this.GetType()
@@ -91,9 +58,76 @@ namespace Viyrex.Meow.Html.Elements
                         .SetValue(this, value);
             }
         }
+
+        public IEnumerable<(string Key, string Value)> GetAttributes()
+        {
+            foreach (var prop in this.GetType()
+                                        .GetRuntimeProperties()
+                                        .Where(x => x.GetCustomAttribute<NotAttributeAttribute>() == null))
+            {
+                var value = prop.GetValue(this);
+                switch (value)
+                {
+                    case string s:
+                        yield return (prop.Name, value.ToString());
+                        break;
+
+                    case DataAttribute da:
+                        foreach (var a in da)
+                            yield return a;
+                        break;
+
+                    case null:
+                    default:
+
+                        break;
+                }
+            }
+            yield break;
+        }
+
+        /// <summary>
+        /// Element evaluator
+        /// </summary>
+        /// <param name="source">html source code</param>
+        /// <returns></returns>
+        internal abstract IEnumerable<(IList<(string key, string value)> attributes, string content)> Evaluate(string source);
+
+        /// <summary>
+        /// Data-* attributes
+        /// </summary>
+        public sealed class DataAttribute : IEnumerable<(string Key, string Value)>
+        {
+            private readonly Dictionary<string, string> dict;
+
+            internal DataAttribute()
+            => this.dict = new Dictionary<string, string>();
+
+            public string this[string attribute]
+            {
+                get
+                    => this.dict.TryGetValue(PreprocessKey(attribute), out var v) ? v : string.Empty;
+                set
+                    => this.dict[PreprocessKey(attribute)] = value;
+            }
+
+            public IEnumerator<(string Key, string Value)> GetEnumerator()
+                => this.dict.Select(x => ("Data-" + x.Key, x.Value)).GetEnumerator();
+
+            IEnumerator IEnumerable.GetEnumerator()
+                => this.GetEnumerator();
+
+            private string PreprocessKey(string attribute)
+            {
+                var a = attribute.ToLower().TrimStart('-', '_');
+                return (a.Length > 4 && a.Substring(0, 5).SequenceEqual("data-")) ? a.Substring(5) : a;
+            }
+        }
+
         #region Global Attribute
 
         #region Core Attribute
+
         public virtual string AccessKey { get; set; }
 
         public virtual string Class { get; set; }
@@ -145,7 +179,8 @@ namespace Viyrex.Meow.Html.Elements
         public virtual string Title { get; set; }
 
         public virtual string Translate { get; set; }
-        #endregion
+
+        #endregion Core Attribute
 
         #region Event Handler Atribute
 
@@ -257,8 +292,8 @@ namespace Viyrex.Meow.Html.Elements
 
         public string OnWaiting { get; set; }
 
-        #endregion
+        #endregion Event Handler Atribute
 
-        #endregion
+        #endregion Global Attribute
     }
 }

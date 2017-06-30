@@ -1,12 +1,14 @@
-﻿#pragma warning disable 809
-using System;
-using Viyrex.Meow.Html.Auxiliaries;
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Area : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Area Element
+    /// </summary>
+    public sealed class Area : EmptyElementBase
+    {
         [Obsolete]
         public override string AccessKey { get; set; }
 
@@ -20,10 +22,10 @@ namespace Viyrex.Meow.Html.Elements
 
         public string HrefLang { get; set; }
 
+        public string Media { get; set; }
+
         [Obsolete]
         public string Name { get; set; }
-        
-        public string Media { get; set; }
 
         [Obsolete]
         public string NoHref { get; set; }
@@ -44,4 +46,3 @@ namespace Viyrex.Meow.Html.Elements
         public string Type { get; set; }
     }
 }
-#pragma warning restore

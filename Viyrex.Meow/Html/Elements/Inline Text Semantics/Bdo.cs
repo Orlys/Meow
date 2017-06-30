@@ -1,10 +1,11 @@
-﻿namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Bdo : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Bdo Element
+    /// </summary>
+    public sealed class Bdo : NormalElementBase
     {
-        public override ElementType ElementType => ElementType.Normal;
-
-
     }
-
 }

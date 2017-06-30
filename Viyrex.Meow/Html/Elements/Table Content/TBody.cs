@@ -1,12 +1,14 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class TBody : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// TBody Element
+    /// </summary>
+    public sealed class TBody : NormalElementBase
+    {
         [Obsolete]
         [Deprecated]
         public string Align { get; set; }
@@ -21,7 +23,7 @@ namespace Viyrex.Meow.Html.Elements
         [Obsolete]
         [Deprecated]
         public string CharOff { get; set; }
-        
+
         public string Span { get; set; }
 
         [Obsolete]

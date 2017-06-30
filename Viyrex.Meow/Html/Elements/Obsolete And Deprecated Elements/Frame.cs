@@ -1,24 +1,20 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Frame Element
+    /// </summary>
     [Deprecated]
-    public sealed class Frame : ElementBase
+    public sealed class Frame : EmptyElementBase
     {
-        public override ElementType ElementType => ElementType.Empty;
-
-        public string Src { get; set; }
-
-        public string Name { get; set; }
-
-        public string NoResize { get; set; }
-
-        public string Scrolling { get; set; }
-
-        public string MarginHeight { get; set; }
-
-        public string MarginWidth { get; set; }
-
         public string FrameBorder { get; set; }
+        public string MarginHeight { get; set; }
+        public string MarginWidth { get; set; }
+        public string Name { get; set; }
+        public string NoResize { get; set; }
+        public string Scrolling { get; set; }
+        public string Src { get; set; }
     }
 }

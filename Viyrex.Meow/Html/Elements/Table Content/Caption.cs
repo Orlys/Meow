@@ -1,12 +1,13 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Caption : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Caption Element
+    /// </summary>
+    public sealed class Caption : NormalElementBase
+    {
         [Obsolete]
         public string Align { get; set; }
     }

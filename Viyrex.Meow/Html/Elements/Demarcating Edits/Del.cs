@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Del : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Del Element
+    /// </summary>
+    public sealed class Del : NormalElementBase
+    {
         public string Cite { get; set; }
 
         public string DateTime { get; set; }

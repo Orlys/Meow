@@ -1,10 +1,12 @@
-﻿namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Dfn : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Dfn Element
+    /// </summary>
+    public sealed class Dfn : NormalElementBase
+    {
         public new string Title { get; set; }
     }
-
 }

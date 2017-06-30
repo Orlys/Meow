@@ -1,13 +1,14 @@
-﻿using System;
-using Viyrex.ML.Html.Auxiliaries;
-namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Track : ElementBase
+    using Meow.Html.Infrastructure;
+
+    /// <summary>
+    /// Track Element
+    /// </summary>
+    public sealed class Track : EmptyElementBase
     {
-        public override ElementType ElementType => ElementType.Empty;
-        
         public string Default { get; set; }
-        
+
         public string Kind { get; set; }
 
         public string Label { get; set; }

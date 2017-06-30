@@ -1,11 +1,13 @@
-﻿using System;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class H1 : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// H1 Element
+    /// </summary>
+    public sealed class H1 : NormalElementBase
+    {
         [Obsolete]
         public string Align { get; set; }
     }

@@ -1,12 +1,14 @@
-﻿using System;
-using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Col : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
+    using System;
 
+    /// <summary>
+    /// Col Element
+    /// </summary>
+    public sealed class Col : EmptyElementBase
+    {
         [Obsolete]
         [Deprecated]
         public string Align { get; set; }
@@ -21,7 +23,7 @@ namespace Viyrex.Meow.Html.Elements
         [Obsolete]
         [Deprecated]
         public string CharOff { get; set; }
-        
+
         public string Span { get; set; }
 
         [Obsolete]

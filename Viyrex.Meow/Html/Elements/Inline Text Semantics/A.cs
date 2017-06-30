@@ -1,11 +1,13 @@
-﻿using Viyrex.ML.Html.Auxiliaries;
-
-namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class A : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// A Element
+    /// </summary>
+    public sealed class A : NormalElementBase
+    {
         public string Href { get; set; }
 
         public string HrefLang { get; set; }
@@ -19,5 +21,4 @@ namespace Viyrex.ML.Html.Elements
 
         public string Type { get; set; }
     }
-
 }

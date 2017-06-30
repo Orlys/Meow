@@ -1,14 +1,16 @@
-﻿using System;
-using Viyrex.ML.Html.Auxiliaries;
-namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Img : ElementBase
+    using Meow.Html.Infrastructure;
+    using System;
+
+    /// <summary>
+    /// Img Element
+    /// </summary>
+    public sealed class Img : EmptyElementBase
     {
-        public override ElementType ElementType => ElementType.Empty;
-        
         [Obsolete]
         public string Align { get; set; }
-        
+
         public string Alt { get; set; }
 
         [Obsolete]
@@ -20,11 +22,11 @@ namespace Viyrex.ML.Html.Elements
 
         [Obsolete]
         public string HSpace { get; set; }
-        
+
         public string IsMap { get; set; }
 
         public string LoangDesc { get; set; }
-        
+
         [Obsolete]
         public string Name { get; set; }
 
@@ -36,10 +38,9 @@ namespace Viyrex.ML.Html.Elements
 
         public string SrcSet { get; set; }
 
-        public string Width { get; set; }
-
         [Obsolete]
         public string VSpace { get; set; }
 
+        public string Width { get; set; }
     }
 }

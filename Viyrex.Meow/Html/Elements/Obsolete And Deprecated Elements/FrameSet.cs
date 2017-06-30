@@ -1,15 +1,16 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    [Deprecated]
-    public sealed class FrameSet : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// FrameSet Element
+    /// </summary>
+    [Deprecated]
+    public sealed class FrameSet : NormalElementBase
+    {
         public string Cols { get; set; }
 
         public string Rows { get; set; }
-        
     }
 }

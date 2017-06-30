@@ -1,12 +1,14 @@
-﻿using Viyrex.Meow.Html.Auxiliaries;
-
-namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    [Experimental]
-    public sealed class Slot : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Auxiliaries;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Slot Element
+    /// </summary>
+    [Experimental]
+    public sealed class Slot : NormalElementBase
+    {
         public string Name { get; set; }
     }
 }

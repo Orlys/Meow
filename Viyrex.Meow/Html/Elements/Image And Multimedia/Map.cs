@@ -1,9 +1,12 @@
-﻿namespace Viyrex.ML.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Map : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Map Element
+    /// </summary>
+    public sealed class Map : NormalElementBase
+    {
         public string Name { get; set; }
     }
 }

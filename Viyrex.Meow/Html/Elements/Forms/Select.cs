@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Select : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Normal;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Select Element
+    /// </summary>
+    public sealed class Select : NormalElementBase
+    {
         public string AutoFocus { get; set; }
 
         public string Disable { get; set; }

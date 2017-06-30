@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Viyrex.Meow;
-
-namespace Viyrex.Meow.Test
+﻿namespace Meow.Test
 {
-    class Program
+    using Meow.Html.Elements;
+    using Meow.Parsers;
+    using System;
+
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            var data = @"<a data-test=""data-test-value"" class=""test-class"" href=""http://www.test.com/"">test</a>";
+            var meow = MeowParser.Load(data);
+            foreach (var a in meow.Resolve<A>())
+            {
+                Console.WriteLine(a.Class);
+            }
+
+            Console.ReadKey();
         }
     }
 }

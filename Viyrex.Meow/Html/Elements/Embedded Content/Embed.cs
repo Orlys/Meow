@@ -1,9 +1,12 @@
-﻿namespace Viyrex.Meow.Html.Elements
+﻿namespace Meow.Html.Elements
 {
-    public sealed class Embed : ElementBase
-    {
-        public override ElementType ElementType => ElementType.Empty;
+    using Meow.Html.Infrastructure;
 
+    /// <summary>
+    /// Embed Element
+    /// </summary>
+    public sealed class Embed : EmptyElementBase
+    {
         public string Height { get; set; }
 
         public string Src { get; set; }
