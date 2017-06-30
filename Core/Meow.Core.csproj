@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.4</TargetFramework>
     <RootNamespace>Meow</RootNamespace>
-    <AssemblyName>Meow</AssemblyName>
+    <AssemblyName>Meow.Core</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

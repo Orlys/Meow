@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meow.Core", "Core\Meow.Core.csproj", "{F5E3A46C-59B0-439C-A67F-CAD4DAEAB6EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meow.Sample", "Meow.Sample\Meow.Sample.csproj", "{D27669DF-7930-4E30-ADAE-9A3BBC50C0AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F5E3A46C-59B0-439C-A67F-CAD4DAEAB6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5E3A46C-59B0-439C-A67F-CAD4DAEAB6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5E3A46C-59B0-439C-A67F-CAD4DAEAB6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D27669DF-7930-4E30-ADAE-9A3BBC50C0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27669DF-7930-4E30-ADAE-9A3BBC50C0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27669DF-7930-4E30-ADAE-9A3BBC50C0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27669DF-7930-4E30-ADAE-9A3BBC50C0AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
