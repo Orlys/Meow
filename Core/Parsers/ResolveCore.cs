@@ -39,7 +39,7 @@
         internal static IEnumerable<string> SplitElement(this string htmlCode)
             => Regex.Split(htmlCode, split_regular);
 
-        internal static T To<T>(this (IList<(string key, string value)> attributes, string content) element) where T : ElementBase, new()
+        internal static T Obtain<T>(this (IList<(string key, string value)> attributes, string content) element) where T : ElementBase, new()
                                                                                                     => element.attributes
             .Aggregate(new T() { ElementContent = element.content }, (body, attr) =>
             {
