@@ -5,16 +5,14 @@
     using System.Linq;
     using System.Text.RegularExpressions;
 
-    internal static class ResolveCore
+    internal static class ParserExtension
     {
-        internal const string attribute_regular = @"(?<key>[\w\-]+)(\s*\=\s*(?<_>['""]?)(?<value>.*?)\k<_>)?";
+        private const string split_regular = "(<[^>]+>)";
 
-        internal const string doctype_regular = @"<!DOCTYPE\s?(?<info>[^>]*)>";
+        private const string attribute_regular = @"(?<key>[\w\-]+)(\s*\=\s*(?<_>['""]?)(?<value>.*?)\k<_>)?";
 
-        internal const RegexOptions option = RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase;
-
-        internal const string split_regular = "(<[^>]+>)";
-
+        private const RegexOptions option = RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase;
+        
         internal const char Token = char.MinValue;
 
         internal static string GetTokenizedString(this string originString, int startIndex, int count)
@@ -33,19 +31,10 @@
                     .Select(k => (k.Groups["key"].Value, k.Groups["value"].Value))
                     .ToList();
 
-        internal static string ResolveDoctype(this string htmlCode)
-            => htmlCode.IsMatch(doctype_regular, out var m) ? m.Groups["info"].Value : string.Empty;
-
         internal static IEnumerable<string> SplitElement(this string htmlCode)
             => Regex.Split(htmlCode, split_regular);
 
-        internal static T Obtain<T>(this (IList<(string key, string value)> attributes, string content) element) where T : ElementBase, new()
-                                                                                                    => element.attributes
-            .Aggregate(new T() { ElementContent = element.content }, (body, attr) =>
-            {
-                body[attr.key] = attr.value;
-                return body;
-            });
+        
 
         /*
         private static IEnumerable<(IList<(string key, string value)> attributes, string content)> ResolveRequireOpeningTag(string htmlCode, string tagName)

@@ -18,6 +18,12 @@
             => new MeowParser(htmlCode ?? throw new ArgumentNullException(nameof(htmlCode)));
 
         public IEnumerable<T> Resolve<T>() where T : ElementBase, new()
-            => new T().Evaluate(this.HtmlCode).Select(x => x.Obtain<T>());
+            => new T().Evaluate(this.HtmlCode)
+                        .Select(element => element.attributes
+                            .Aggregate(new T() { ElementContent = element.content }, (body, attr) =>
+                            {
+                                body[attr.key] = attr.value;
+                                return body;
+                            }));
     }
 }
