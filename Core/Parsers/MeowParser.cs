@@ -8,10 +8,8 @@
     public class MeowParser
     {
         private MeowParser(string htmlCode)
-        {
-            this.HtmlCode = htmlCode;
-        }
-
+            => this.HtmlCode = htmlCode;
+        
         public string HtmlCode { get; private set; }
 
         public static MeowParser Load(string htmlCode)
@@ -19,11 +17,11 @@
 
         public IEnumerable<T> Resolve<T>() where T : ElementBase, new()
             => new T().Evaluate(this.HtmlCode)
-                        .Select(element => element.attributes
-                            .Aggregate(new T() { ElementContent = element.content }, (body, attr) =>
-                            {
-                                body[attr.key] = attr.value;
-                                return body;
-                            }));
+                .Select(element => element.attributes
+                .Aggregate(new T { ElementContent = element.content }, (body, attr) =>
+                {
+                    body[attr.key] = attr.value;
+                    return body;
+                }));
     }
 }

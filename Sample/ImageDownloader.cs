@@ -1,7 +1,6 @@
 ﻿using Meow.Html.Elements;
 using Meow.Parsers;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,7 +18,7 @@ class ImageDownloader
     public async Task RunAsync(Action<ImageBag> action)
     {
         var images = (await this.client.GetResourceAsync(s => MeowParser.Load(s).Resolve<Img>()))
-            .Where(img => Uri.IsWellFormedUriString(img.Src, UriKind.RelativeOrAbsolute) & !string.IsNullOrWhiteSpace(img.Src))
+            .Where(img => Uri.IsWellFormedUriString(img.Src, UriKind.RelativeOrAbsolute))
             .ToArray();
         
         for (int id = 0; id < images.Length; id++)
@@ -28,9 +27,9 @@ class ImageDownloader
 
     static void Main(string[] args)
     {
-        var target = "http://localhost";
+        var target = "http://imgur.com";
         var crawler = new ImageDownloader(target);
-        crawler.RunAsync(msg => Console.WriteLine(msg)).Wait();
+        crawler.RunAsync(msg => Console.WriteLine(msg));
         Console.ReadKey();
     }
 
@@ -61,16 +60,4 @@ class ImageDownloader
             };
         }
     }
-}
-class ImageBag
-{
-    public enum Status
-    {
-        Skipped,
-        Processed
-    }
-    public Status ImageStatus { get; set; }
-    public int Id { get; set; }
-    public string Source { get; set; }
-    public override string ToString() => $"[{Id.ToString().PadLeft(3,'0')}] '{Source}' is {ImageStatus}";
 }
