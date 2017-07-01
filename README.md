@@ -1,3 +1,3 @@
 # Meow
 
-## Easy way for parse Html / Xml format via C\#
+## Let you use the easiest way to parse the mark language (e.g. HTML, XML)
