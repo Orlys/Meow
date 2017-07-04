@@ -25,11 +25,13 @@ class ImageDownloader
             action(await this.ProcessAsync(id, images[id].Src));
     }
 
-    static void Main(string[] args)
+    static void Main()
     {
         var target = "http://imgur.com";
         var crawler = new ImageDownloader(target);
+#pragma warning disable 4014
         crawler.RunAsync(msg => Console.WriteLine(msg));
+#pragma warning restore
         Console.ReadKey();
     }
 

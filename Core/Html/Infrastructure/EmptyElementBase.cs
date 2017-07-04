@@ -1,23 +1,23 @@
 ﻿namespace Meow.Html.Infrastructure
 {
+    using Meow.Auxiliary;
     using Meow.Parsers;
     using System.Collections.Generic;
 
-    public class EmptyElementBase : ElementBase
+    public class EmptyElementBase : HtmlElementBase
     {
-        protected const string AttributeRegex = "attribute";
-
         protected EmptyElementBase()
         {
         }
 
-        protected virtual string EmptyTagRegex => @"<\s*" + this.ElementName + @"(?<" + AttributeRegex + @">[^>]+)/?\s*>";
+        [NotAttribute]
+        protected virtual string EmptyRegex => @"<" + this.ElementName + @"(?<" + AttributeToken + @">[^>]+)/?\s*>";
 
         internal override IEnumerable<(IList<(string key, string value)> attributes, string content)> Evaluate(string source)
         {
             foreach (var subStr in source.SplitElement())
-                if (subStr.IsMatch(this.EmptyTagRegex, out var m))
-                    yield return (m.Value.ResolveAttributes(), string.Empty);
+                if (subStr.IsMatch(this.EmptyRegex, out var m))
+                    yield return (this.ResolveAttributes(m.Value), string.Empty);
         }
     }
 }

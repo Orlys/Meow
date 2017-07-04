@@ -1,38 +1,20 @@
 ﻿namespace Meow.Html.Infrastructure
 {
-    using Meow.Html.Auxiliaries;
+    using Meow.Auxiliary;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
 
-    public abstract class ElementBase
+    public abstract class HtmlElementBase : ElementBase
     {
-        protected ElementBase()
+        protected HtmlElementBase()
         {
-            this.ElementName = this.GetType().Name;
             this.Data = new DataAttribute();
         }
-
-        /// <summary>
-        /// Element's content
-        /// </summary>
+        
         [NotAttribute]
-        public virtual string ElementContent { get; set; }
-
-        /// <summary>
-        /// Element's name
-        /// </summary>
-        [NotAttribute]
-        public virtual string ElementName { get; set; }
-
-        /// <summary>
-        /// Element's attribute indexer
-        /// </summary>
-        /// <param name="attributeName"></param>
-        /// <returns></returns>
-        [NotAttribute]
-        public string this[string attributeName]
+        public override string this[string attributeName]
         {
             get
             {
@@ -40,11 +22,7 @@
                 if (n.Length > 5 && n.Substring(0, 5).Replace("_", "-") == "data-")
                     return this.Data[n];
                 else
-                    return this.GetType()
-                                .GetRuntimeProperties()
-                                .FirstOrDefault(x => x.GetCustomAttribute<NotAttributeAttribute>() == null
-                                                    & x.Name.ToLower().Equals(n.Replace("-", "_")))?
-                                .GetValue(this) as string;
+                    return base[attributeName];
             }
             set
             {
@@ -52,14 +30,11 @@
                 if (n.Length > 5 && n.Substring(0, 5).Replace("_", "-") == "data-")
                     this.Data[n] = value;
                 else
-                    this.GetType()
-                        .GetRuntimeProperties()
-                        .FirstOrDefault(x => x.GetCustomAttribute<NotAttributeAttribute>() == null & x.Name.ToLower().Equals(n.Replace("-", "_")))?
-                        .SetValue(this, value);
+                    base[attributeName] = value;
             }
         }
 
-        public IEnumerable<(string Key, string Value)> GetAttributes()
+        public override IEnumerable<(string Key, string Value)> GetAttributes()
         {
             foreach (var prop in this.GetType()
                                         .GetRuntimeProperties()
@@ -85,13 +60,6 @@
             }
             yield break;
         }
-
-        /// <summary>
-        /// Element evaluator
-        /// </summary>
-        /// <param name="source">html source code</param>
-        /// <returns></returns>
-        internal abstract IEnumerable<(IList<(string key, string value)> attributes, string content)> Evaluate(string source);
 
         /// <summary>
         /// Data-* attributes
@@ -182,7 +150,8 @@
 
         #endregion Core Attribute
 
-        #region Event Handler Atribute
+#if SUPPPRT_EVENT_HANDLER_ATTRIBUTES
+        #region Event Handler Atributes
 
         public string OnAbort { get; set; }
 
@@ -293,6 +262,7 @@
         public string OnWaiting { get; set; }
 
         #endregion Event Handler Atribute
+#endif
 
         #endregion Global Attribute
     }

@@ -1,18 +1,21 @@
 ﻿namespace Meow.Html.Infrastructure
 {
+    using Meow.Auxiliary;
     using Meow.Parsers;
     using System.Collections.Generic;
 
-    public class RequireElementBase : ElementBase
+    public class RequireElementBase : HtmlElementBase
     {
-        protected const string AttributeRegex = "attribute";
 
         protected RequireElementBase()
         {
         }
 
-        protected virtual string ClosingRegex => @"<\s*\/\s*" + this.ElementName + @"\s*>";
-        protected virtual string OpeningRegex => @"<\s*" + this.ElementName + @"(?<" + AttributeRegex + ">[^>]+?)>";
+        [NotAttribute]
+        protected virtual string OpeningRegex => @"<*" + this.ElementName + @"(?<" + AttributeToken + ">[^>]+?)>";
+
+        [NotAttribute]
+        protected virtual string ClosingRegex => @"<\/" + this.ElementName + @"\s*>";
 
         internal override IEnumerable<(IList<(string key, string value)> attributes, string content)> Evaluate(string source)
         {
@@ -23,7 +26,7 @@
                 if (subStr.IsMatch(this.OpeningRegex, out var m))
                 {
                     var st = html.IndexOf(subStr);
-                    stack.Push((st + subStr.Length, m.Groups[AttributeRegex].Value));
+                    stack.Push((st + subStr.Length, m.Groups[AttributeToken].Value));
 
                     html = html.GetTokenizedString(st, subStr.Length);
                 }
@@ -34,7 +37,7 @@
                     var ed = html.IndexOf(subStr);
                     var content = html.Substring(st, ed - st).RemoveToken();
 
-                    yield return (tmp.attributeString.ResolveAttributes(), content);
+                    yield return (this.ResolveAttributes(tmp.attributeString), content);
                     html = html.GetTokenizedString(st, (ed + subStr.Length) - st);
                 }
             }

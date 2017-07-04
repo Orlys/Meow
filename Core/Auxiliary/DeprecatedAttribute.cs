@@ -1,4 +1,4 @@
-﻿namespace Meow.Html.Auxiliaries
+﻿namespace Meow.Auxiliary
 {
     using System;
 
@@ -6,7 +6,7 @@
     /// This is an experimental API that should not be used in production code.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
-    public sealed class DeprecatedAttribute : Attribute
+    internal sealed class DeprecatedAttribute : Attribute
     {
     }
 }

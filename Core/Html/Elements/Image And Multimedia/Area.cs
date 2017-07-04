@@ -1,6 +1,6 @@
 ﻿namespace Meow.Html.Elements
 {
-    using Meow.Html.Auxiliaries;
+    using Meow.Auxiliary;
     using Meow.Html.Infrastructure;
     using System;
 
@@ -10,7 +10,7 @@
     public sealed class Area : EmptyElementBase
     {
         [Obsolete]
-        public override string AccessKey { get; set; }
+        public new string AccessKey { get; set; }
 
         public string Alt { get; set; }
 
@@ -38,7 +38,7 @@
         public string Shape { get; set; }
 
         [Obsolete]
-        public override string TabIndex { get; set; }
+        public new string TabIndex { get; set; }
 
         public string Target { get; set; }
 

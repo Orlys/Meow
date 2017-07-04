@@ -1,4 +1,4 @@
-﻿namespace Meow.Html.Auxiliaries
+﻿namespace Meow.Auxiliary
 {
     using System;
 

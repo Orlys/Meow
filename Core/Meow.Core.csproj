@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Html\Elements\Content Sectioning\ve-1D77.tmp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.ValueTuple" Version="4.4.0-preview1-25305-02" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Xml\Infrastructure\" />
   </ItemGroup>
 
 </Project>

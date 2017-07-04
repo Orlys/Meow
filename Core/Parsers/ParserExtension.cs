@@ -11,11 +11,9 @@
     
     internal static class ParserExtension
     {
+        private const RegexOptions RegexOption = RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase;
+
         private const string split_regular = "(<[^>]+>)";
-
-        private const string attribute_regular = @"(?<key>[\w\-]+)(\s*\=\s*(?<_>['""]?)(?<value>.*?)\k<_>)?";
-
-        private const RegexOptions option = RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase;
         
         private const char Token = char.MinValue;
 
@@ -24,20 +22,14 @@
                             .Insert(startIndex, new string(Enumerable.Repeat(Token, count).ToArray()));
 
         internal static bool IsMatch(this string substring, string pattern, out Match match)
-            => (match = Regex.Match(substring, pattern, option)).Success;
+            => (match = Regex.Match(substring, pattern, RegexOption)).Success;
 
         internal static string RemoveToken(this string tokenizedString)
             => tokenizedString.Replace(Token.ToString(), null);
-
-        internal static IList<(string key, string value)> ResolveAttributes(this string opening)
-            => Regex.Matches(opening, attribute_regular, option)
-                    .Cast<Match>()
-                    .Select(k => (k.Groups["key"].Value, k.Groups["value"].Value))
-                    .ToList();
-
+        
         private static (string code,IEnumerable<string> list) Cache;
-        internal static IEnumerable<string> SplitElement(this string htmlCode)
-            => Regex.Split(htmlCode, split_regular);
+        internal static IEnumerable<string> SplitElement(this string code)
+            => Regex.Split(code, split_regular);
         
         
 

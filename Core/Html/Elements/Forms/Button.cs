@@ -1,6 +1,6 @@
 ﻿namespace Meow.Html.Elements
 {
-    using Meow.Html.Auxiliaries;
+    using Meow.Auxiliary;
     using Meow.Html.Infrastructure;
 
     /// <summary>
