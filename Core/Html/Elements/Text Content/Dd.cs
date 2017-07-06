@@ -5,7 +5,7 @@
     /// <summary>
     /// Dd Element
     /// </summary>
-    public sealed class Dd : RequireElementBase
+    public sealed class Dd : RequireStartElementBase
     {
         public string NoWrap { get; set; }
     }

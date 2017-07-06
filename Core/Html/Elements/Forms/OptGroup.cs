@@ -5,7 +5,7 @@
     /// <summary>
     /// OptGroup Element
     /// </summary>
-    public sealed class OptGroup : RequireElementBase
+    public sealed class OptGroup : RequireStartElementBase
     {
         public string Disable { get; set; }
 

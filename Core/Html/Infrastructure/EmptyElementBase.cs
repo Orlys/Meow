@@ -1,7 +1,7 @@
 ﻿namespace Meow.Html.Infrastructure
 {
     using Meow.Auxiliary;
-    using Meow.Parsers;
+    using Meow.Html.Parser;
     using System.Collections.Generic;
 
     public class EmptyElementBase : HtmlElementBase

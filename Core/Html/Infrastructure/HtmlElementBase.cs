@@ -12,7 +12,7 @@
         {
             this.Data = new DataAttribute();
         }
-        
+
         [NotAttribute]
         public override string this[string attributeName]
         {
@@ -151,6 +151,7 @@
         #endregion Core Attribute
 
 #if SUPPPRT_EVENT_HANDLER_ATTRIBUTES
+
         #region Event Handler Atributes
 
         public string OnAbort { get; set; }
@@ -261,7 +262,8 @@
 
         public string OnWaiting { get; set; }
 
-        #endregion Event Handler Atribute
+        #endregion Event Handler Atributes
+
 #endif
 
         #endregion Global Attribute

@@ -1,31 +1,33 @@
 ﻿using Meow.Html.Elements;
-using Meow.Parsers;
+using Meow.Html.Parser;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-class ImageDownloader 
+internal class ImageDownloader
 {
     public string Location { get; private set; }
     private readonly Client client;
+
     public ImageDownloader(string target)
     {
         this.client = new Client(target);
         Directory.CreateDirectory(this.Location = Path.Combine(AppContext.BaseDirectory, "images"));
     }
+
     public async Task RunAsync(Action<ImageBag> action)
     {
         var images = (await this.client.GetResourceAsync(s => MeowParser.Load(s).Resolve<Img>()))
             .Where(img => Uri.IsWellFormedUriString(img.Src, UriKind.RelativeOrAbsolute))
             .ToArray();
-        
+
         for (int id = 0; id < images.Length; id++)
             action(await this.ProcessAsync(id, images[id].Src));
     }
 
-    static void Main()
+    private static void Main()
     {
         var target = "http://imgur.com";
         var crawler = new ImageDownloader(target);

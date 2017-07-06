@@ -6,7 +6,7 @@
     /// <summary>
     /// Li Element
     /// </summary>
-    public sealed class Li : RequireElementBase
+    public sealed class Li : RequireStartElementBase
     {
         [Deprecated]
         public string Type { get; set; }

@@ -1,24 +1,21 @@
-﻿namespace Meow.Parsers
+﻿namespace Meow.Html.Parser
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
 
-    internal class ElementDivider
-    {
-    }
-    
-    
     internal static class ParserExtension
     {
         private const RegexOptions RegexOption = RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase;
 
         private const string split_regular = "(<[^>]+>)";
-        
+
         private const char Token = char.MinValue;
 
+        private static (string code, IEnumerable<string> list) Cache;
+
         internal static string GetTokenizedString(this string originString, int startIndex, int count)
-            => originString.Remove(startIndex, count)
+                    => originString.Remove(startIndex, count)
                             .Insert(startIndex, new string(Enumerable.Repeat(Token, count).ToArray()));
 
         internal static bool IsMatch(this string substring, string pattern, out Match match)
@@ -26,12 +23,8 @@
 
         internal static string RemoveToken(this string tokenizedString)
             => tokenizedString.Replace(Token.ToString(), null);
-        
-        private static (string code,IEnumerable<string> list) Cache;
         internal static IEnumerable<string> SplitElement(this string code)
             => Regex.Split(code, split_regular);
-        
-        
 
         /*
         private static IEnumerable<(IList<(string key, string value)> attributes, string content)> ResolveRequireOpeningTag(string htmlCode, string tagName)
@@ -78,5 +71,9 @@
         }
 
         */
+    }
+
+    internal class ElementDivider
+    {
     }
 }

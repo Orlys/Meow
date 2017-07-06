@@ -6,7 +6,7 @@
     /// <summary>
     /// P Element
     /// </summary>
-    public sealed class P : RequireElementBase
+    public sealed class P : RequireStartElementBase
     {
         [Obsolete]
         public string Align { get; set; }

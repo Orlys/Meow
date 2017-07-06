@@ -7,7 +7,7 @@
     /// <summary>
     /// THead Element
     /// </summary>
-    public sealed class THead : RequireElementBase
+    public sealed class THead : RequireStartElementBase
     {
         [Obsolete]
         [Deprecated]

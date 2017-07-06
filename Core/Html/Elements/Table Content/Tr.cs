@@ -7,7 +7,7 @@
     /// <summary>
     /// Tr Element
     /// </summary>
-    public sealed class Tr : RequireElementBase
+    public sealed class Tr : RequireStartElementBase
     {
         [Obsolete]
         [Deprecated]

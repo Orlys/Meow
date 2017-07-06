@@ -7,7 +7,7 @@
     /// <summary>
     /// TFoot Element
     /// </summary>
-    public sealed class TFoot : RequireElementBase
+    public sealed class TFoot : RequireStartElementBase
     {
         [Obsolete]
         [Deprecated]

@@ -7,7 +7,7 @@
     /// <summary>
     /// Td Element
     /// </summary>
-    public sealed class Td : RequireElementBase
+    public sealed class Td : RequireStartElementBase
     {
         [Obsolete]
         public string Abbr { get; set; }

@@ -1,21 +1,21 @@
 ﻿namespace Meow.Html.Infrastructure
 {
     using Meow.Auxiliary;
-    using Meow.Parsers;
+    using Meow.Html.Parser;
     using System.Collections.Generic;
 
     public class NormalElementBase : HtmlElementBase
     {
-
         protected NormalElementBase()
         {
         }
 
         [NotAttribute]
-        protected virtual string OpeningRegex => @"<" + this.ElementName + @"(?<" + AttributeToken + ">[^>]+?)>";
+        protected virtual string ClosingRegex => @"<\/" + this.ElementName + @"\s*>";
 
         [NotAttribute]
-        protected virtual string ClosingRegex => @"<\/" + this.ElementName + @"\s*>";
+        protected virtual string OpeningRegex => @"<" + this.ElementName + @"(?<" + AttributeToken + ">[^>]+?)>";
+
         internal override IEnumerable<(IList<(string key, string value)> attributes, string content)> Evaluate(string source)
         {
             var html = source;

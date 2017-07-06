@@ -5,7 +5,7 @@
     /// <summary>
     /// Option Element
     /// </summary>
-    public sealed class Option : RequireElementBase
+    public sealed class Option : RequireStartElementBase
     {
         public string Disable { get; set; }
 

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Xml\Infrastructure\" />
+    <Folder Include="Html\Parser\" />
   </ItemGroup>
 
 </Project>

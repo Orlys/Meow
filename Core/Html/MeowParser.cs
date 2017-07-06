@@ -1,11 +1,8 @@
-﻿namespace Meow.Parsers
+﻿namespace Meow.Html.Parser
 {
-    using Meow.Html.Infrastructure;
-    using Meow.Auxiliary;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
 
     public class MeowParser
     {
@@ -32,8 +29,5 @@
                     body[attr.key] = attr.value;
                     return body;
                 }));
-
-        
-
     }
 }

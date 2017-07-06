@@ -1,14 +1,14 @@
 # Meow
 
-## Let you use the easiest way to parse the markup language (e.g. HTML, XML)
+## Parse your html code to LINQable html element.
 
 ```csharp
-using Meow.Parses;
+using Meow.Html.Parses;
 using Meow.Html.Elememts;
 
 
-var source = default(string);
-var parser = MeowParser.Load(null);
+var sourceCode = "html source code";
+var parser = MeowParser.Load(sourceCode);
 
 var hrefs = parser.Resolve<A>().Select(a => a.Href);
 

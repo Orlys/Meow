@@ -5,7 +5,7 @@
     /// <summary>
     /// Dt Element
     /// </summary>
-    public sealed class Dt : RequireElementBase
+    public sealed class Dt : RequireStartElementBase
     {
     }
 }

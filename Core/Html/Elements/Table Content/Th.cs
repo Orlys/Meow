@@ -7,7 +7,7 @@
     /// <summary>
     /// Th Element
     /// </summary>
-    public sealed class Th : RequireElementBase
+    public sealed class Th : RequireStartElementBase
     {
         [Obsolete]
         public string Abbr { get; set; }
