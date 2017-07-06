@@ -1,6 +1,6 @@
 # Meow
 
-## Parse your html code to LINQable html element.
+## Parse your html code to LINQable html elements.
 
 ```csharp
 using Meow.Html.Parses;
