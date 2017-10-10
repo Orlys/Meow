@@ -1,16 +1,16 @@
-# Meow
+# Meow.Schwarz
 
-## Parse your html code to LINQable html elements.
+## Introduction
 
 ```csharp
-using Meow.Html.Parses;
-using Meow.Html.Elememts;
+using Meow.Schwarz;
+using Meow.Schwarz.Entity;
 
 
 var sourceCode = "html source code";
-var parser = MeowParser.Load(sourceCode);
+var meow = Meow.Load(sourceCode);
 
-var hrefs = parser.Resolve<A>().Select(a => a.Href);
+var hrefs = meow.Query<A>().Select(a => a.Href);
 
-var srcs = parser.Resolve<Img>().Select(img => img.Src);
+var srcs = meow.Query<Img>().Select(img => img.Src);
 ```
