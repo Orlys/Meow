@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9BA4498-BE00-4390-8FE4-391B2AF6373B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Meow.Schwarz</RootNamespace>
+    <AssemblyName>Meow.Schwarz</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\Auxiliary\DeprecatedAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\ExperimentalAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\NotAttributeAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\NotStandardizedAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\OriginalAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\PreprocessAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\RequireStartAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\SymbolAttribute.cs" />
+    <Compile Include="Entity\Auxiliary\UnknownException.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Address.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Article.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Aside.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Footer.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\H1.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\H2.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\H3.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\H4.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\H5.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\H6.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Header.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Hgroup.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Nav.cs" />
+    <Compile Include="Entity\Block Tag\Content Sectioning\Section.cs" />
+    <Compile Include="Entity\Block Tag\Demarcating Edits\Del.cs" />
+    <Compile Include="Entity\Block Tag\Demarcating Edits\Ins.cs" />
+    <Compile Include="Entity\Block Tag\Document Metadata\Style.cs" />
+    <Compile Include="Entity\Block Tag\Document Metadata\Title.cs" />
+    <Compile Include="Entity\Block Tag\Embedded Content\Object.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Button.cs" />
+    <Compile Include="Entity\Block Tag\Forms\DataList.cs" />
+    <Compile Include="Entity\Block Tag\Forms\FieldSet.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Form.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Label.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Legend.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Meter.cs" />
+    <Compile Include="Entity\Block Tag\Forms\OptGroup.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Option.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Output.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Progress.cs" />
+    <Compile Include="Entity\Block Tag\Forms\Select.cs" />
+    <Compile Include="Entity\Block Tag\Forms\TextArea.cs" />
+    <Compile Include="Entity\Block Tag\Image And Multimedia\Audio.cs" />
+    <Compile Include="Entity\Block Tag\Image And Multimedia\Map.cs" />
+    <Compile Include="Entity\Block Tag\Image And Multimedia\Video.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\A.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Abbr.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\B.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Bdi.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Bdo.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Cite.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Code.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Data.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Dfn.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Em.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\I.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Kbd.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Mark.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Q.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Rp.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Rt.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Rtc.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Ruby.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\S.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Samll.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Samp.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Span.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Strong.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Sub.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Sup.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Time.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\U.cs" />
+    <Compile Include="Entity\Block Tag\Inline Text Semantics\Var.cs" />
+    <Compile Include="Entity\Block Tag\Interactive Elements\Details.cs" />
+    <Compile Include="Entity\Block Tag\Interactive Elements\Dialog.cs" />
+    <Compile Include="Entity\Block Tag\Interactive Elements\Menu.cs" />
+    <Compile Include="Entity\Block Tag\Interactive Elements\Summary.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Acronym.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Applet.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Big.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Blink.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Center.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Font.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\FrameSet.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Shadow.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Strike.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Tt.cs" />
+    <Compile Include="Entity\Block Tag\Obsolete And Deprecated Elements\Xmp.cs" />
+    <Compile Include="Entity\Block Tag\Scripting\Canvas.cs" />
+    <Compile Include="Entity\Block Tag\Scripting\NoScript.cs" />
+    <Compile Include="Entity\Block Tag\Scripting\Script.cs" />
+    <Compile Include="Entity\Block Tag\Special Elements\Body.cs" />
+    <Compile Include="Entity\Block Tag\Special Elements\Head.cs" />
+    <Compile Include="Entity\Block Tag\Special Elements\Html.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\Caption.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\ColGroup.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\Table.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\TBody.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\Td.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\TFoot.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\Th.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\THead.cs" />
+    <Compile Include="Entity\Block Tag\Table Content\Tr.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Blockquote.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Dd.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Div.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Dl.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Dt.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Figcaption.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Figure.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Li.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Main.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Ol.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\P.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Pre.cs" />
+    <Compile Include="Entity\Block Tag\Text Content\Ul.cs" />
+    <Compile Include="Entity\Block Tag\Web Components\Slot.cs" />
+    <Compile Include="Entity\Block Tag\Web Components\Template.cs" />
+    <Compile Include="Entity\Empty Tag\Document Metadata\Base.cs" />
+    <Compile Include="Entity\Empty Tag\Document Metadata\Link.cs" />
+    <Compile Include="Entity\Empty Tag\Document Metadata\Meta.cs" />
+    <Compile Include="Entity\Empty Tag\Embedded Content\Embed.cs" />
+    <Compile Include="Entity\Empty Tag\Embedded Content\Param.cs" />
+    <Compile Include="Entity\Empty Tag\Embedded Content\Source.cs" />
+    <Compile Include="Entity\Empty Tag\Forms\Input.cs" />
+    <Compile Include="Entity\Empty Tag\Image And Multimedia\Area.cs" />
+    <Compile Include="Entity\Empty Tag\Image And Multimedia\Img.cs" />
+    <Compile Include="Entity\Empty Tag\Image And Multimedia\Track.cs" />
+    <Compile Include="Entity\Empty Tag\Inline Text Semantics\Br.cs" />
+    <Compile Include="Entity\Empty Tag\Inline Text Semantics\Wbr.cs" />
+    <Compile Include="Entity\Empty Tag\Interactive Elements\MenuItem.cs" />
+    <Compile Include="Entity\Empty Tag\Obsolete And Deprecated Elements\BaseFont.cs" />
+    <Compile Include="Entity\Empty Tag\Obsolete And Deprecated Elements\Frame.cs" />
+    <Compile Include="Entity\Empty Tag\Obsolete And Deprecated Elements\IsIndex.cs" />
+    <Compile Include="Entity\Empty Tag\Obsolete And Deprecated Elements\Keygen.cs" />
+    <Compile Include="Entity\Empty Tag\Table Content\Col.cs" />
+    <Compile Include="Entity\Empty Tag\Text Content\Hr.cs" />
+    <Compile Include="Entity\Infrastructure\Attribute.cs" />
+    <Compile Include="Entity\Infrastructure\Attributes.cs" />
+    <Compile Include="Entity\Infrastructure\AttributeTagSegment.cs" />
+    <Compile Include="Entity\Infrastructure\BlockTag.cs" />
+    <Compile Include="Entity\Infrastructure\DataSegment.cs" />
+    <Compile Include="Entity\Infrastructure\EmptyContent.cs" />
+    <Compile Include="Entity\Infrastructure\EmptyTag.cs" />
+    <Compile Include="Entity\Infrastructure\EndTag.cs" />
+    <Compile Include="Entity\Infrastructure\ParticularTagSegment.cs" />
+    <Compile Include="Entity\Infrastructure\StartTag.cs" />
+    <Compile Include="Entity\Infrastructure\TagSegment.cs" />
+    <Compile Include="Entity\Infrastructure\ValueContent.cs" />
+    <Compile Include="Entity\Interface\IAttributeSegment.cs" />
+    <Compile Include="Entity\Interface\IBlockTag.cs" />
+    <Compile Include="Entity\Interface\IEntitySegment.cs" />
+    <Compile Include="Entity\Interface\ILayout.cs" />
+    <Compile Include="Entity\Interface\IPosition.cs" />
+    <Compile Include="Entity\Interface\ISegment.cs" />
+    <Compile Include="Entity\Other Tag\Comment.cs" />
+    <Compile Include="Entity\Other Tag\Doctype.cs" />
+    <Compile Include="Meow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
