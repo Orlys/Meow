@@ -1,0 +1,1025 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0092)https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="WT.seg_1" content="zh-tw"><link rel="canonical" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx">
+    <title>Regex 類別 (System.Text.RegularExpressions)</title>
+
+<meta name="DCS.dcsuri" content="/zh-tw/library/6f7hht7k(d=default,l=zh-tw,v=vs.110).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/zh-tw/library/6f7hht7k(d=default,l=zh-tw,v=vs.110).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/zh-tw/library/6f7hht7k(d=default,l=zh-tw,v=vs.110).aspx">
+
+<meta name="ms.prod" content=".net-framework-4.6">
+
+<meta name="ms.devlang" content="csharp">
+
+<meta name="ms.topic" content="managed-reference">
+
+<meta name="AmbientContext" content="{&quot;layout.limit_max_width&quot;:true,&quot;AmbientContextId&quot;:&quot;1C76163C-AF7E-43D2-8C27-559A9004E9D1&quot;,&quot;display.use_large_font&quot;:false,&quot;insight.perf_timing&quot;:true,&quot;AmbientContextDownstream&quot;:{&quot;LogTrace&quot;:false},&quot;display.high_contrast&quot;:false,&quot;insight.use_wedcs_vnext&quot;:true}">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/zh-tw/library/6f7hht7k(d=default,l=zh-tw,v=vs.110).aspx">
+
+<meta name="MN" content="4B9B1F28-11:27:48 AM">
+
+<meta name="Search.ShortId" content="6f7hht7k">
+
+<meta name="ms.shortidmsdn" content="6f7hht7k">
+
+<meta name="ms.locale" content="zh-tw">
+
+<meta name="ms.prodver" content="VS.110">
+
+<meta name="ms.contentlang" content="ZH">
+
+<meta name="ms.lang" content="ZH">
+
+<meta name="ms.loc" content="TW">
+
+<meta name="ms.sitever" content="2017.08.13.1">
+
+<meta name="ms.assetid" content="T:System.Text.RegularExpressions.Regex">
+
+<meta name="ms.auth" content="0">
+
+<meta name="ms.technology" content="dotnet-bcl">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="./data2_files/ai.0.js.下載" async=""></script><script type="text/javascript" data-do-not-move="true">
+        //<![CDATA[
+        var AmbientContext = null;
+
+        (function(){
+            var root = (function(){return this;}).call(null);
+
+            var GetCookie = function(name){
+                var cookies = root.document.cookie ? root.document.cookie.split('; ') : [];
+                for (var i = 0; i < cookies.length; i++) {
+                    var pos = cookies[i].indexOf('=');
+                    if (name === root.decodeURIComponent(cookies[i].slice(0, pos)))
+                    {
+                        var cookie = cookies[i].slice(pos + 1).replace(/\+/g, ' ');
+                        cookie = root.decodeURIComponent(cookie);
+                        return cookie;
+                    }
+                }
+            };
+
+            var JsonDeserialize = function(content) {
+                return root.JSON && root.JSON.parse ? root.JSON.parse(content) : (new Function('return (' + content + ')'))();
+            };
+
+            try {
+                AmbientContext = GetCookie('AmbientContext');
+                AmbientContext = AmbientContext && JsonDeserialize(AmbientContext);
+            } catch(ex) {
+            } finally {
+                AmbientContext = AmbientContext || null;
+            }
+        })();
+        //]]>
+    </script>
+
+    <script type="text/javascript" src="./data2_files/jquery-1.9.1.min.js.下載" data-do-not-move="true" data-provides="jQuery"></script>
+
+<link rel="stylesheet" type="text/css" href="./data2_files/Combined.css"><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = {
+	"image": "https://i-msdn.sec.s-msft.com",
+	"js": "https://i2-msdn.sec.s-msft.com",
+	"css": "https://i-msdn.sec.s-msft.com",
+	"ttf": "https://i-msdn.sec.s-msft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected">try {
+//
+
+        window.appInsightsId = '5eb1b2eb-c47a-497a-a7ac-a1c230b2882f';
+        //
+} finally { MTPS._injectNextScript_1 && MTPS._injectNextScript_1(); }</script><script class="mtps-injected" src="./data2_files/Combined.js.下載"></script><link href="./data2_files/PrintView.css" rel="stylesheet" type="text/css" media="print"><meta name="ms.layout_limit_max_width" content="true"><meta name="ms.AmbientContextId" content="1C76163C-AF7E-43D2-8C27-559A9004E9D1"><meta name="ms.display_use_large_font" content="false"><meta name="ms.insight_perf_timing" content="true"><meta name="ms.AmbientContextDownstream" content="%7B%7D"><meta name="ms.display_high_contrast" content="false"><meta name="ms.insight_use_wedcs_vnext" content="true"><meta name="ms.perf.timing" content=",,1,132,724,724,4490,4683,4497,4714,4714,4918,,,"><script type="text/javascript" src="./data2_files/ms.js.下載"></script><script type="text/javascript" src="./data2_files/jsll-3.2.0.js.下載"></script><script type="text/javascript" src="./data2_files/jsll-4.2.0.js.下載"></script><script class="mtps-injected" src="./data2_files/SearchBox.jss"></script><script async="" src="./data2_files/t.js.下載"></script><script class="mtps-injected" src="./data2_files/JumpRedirect.js.下載"></script><script class="mtps-injected">try {
+//
+    MTPS = window.MTPS || {};
+    MTPS.Translation = window.MTPS.Translation || {};
+
+    MTPS.Translation.TranslationType =  0;
+
+        MTPS.Translation.EditorLink = {
+            includeEditor : 0,
+            editLink: "https://msdn.microsoft.com/zh-tw/library/translation/edit/system.text.regularexpressions.regex(v=vs.110).aspx",
+            editLinkText: "建議更好的翻譯"
+        };
+
+    //
+} finally { MTPS._injectNextScript_5 && MTPS._injectNextScript_5(); }</script><script class="mtps-injected" src="./data2_files/Combined.js(1).下載"></script><script class="mtps-injected">try {
+MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = 'Expand'; MTPS.LocalizedStrings.CollapseButtonTooltip = 'Collapse'; MTPS.LocalizedStrings.EnhancedExpandTooltip = '按一下展開。按兩下全部展開。'; MTPS.LocalizedStrings.EnhancedCollapseTooltip = '按一下摺疊。按兩下全部摺疊。'; MTPS.LocalizedStrings.ExpandAllButtonTooltip = '全部展開'; MTPS.LocalizedStrings.CollapseAllButtonTooltip = '全部摺疊';
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script><script class="mtps-injected">try {
+MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = 'Expand'; MTPS.LocalizedStrings.CollapseButtonTooltip = 'Collapse'; MTPS.LocalizedStrings.EnhancedExpandTooltip = '按一下展開。按兩下全部展開。'; MTPS.LocalizedStrings.EnhancedCollapseTooltip = '按一下摺疊。按兩下全部摺疊。'; MTPS.LocalizedStrings.ExpandAllButtonTooltip = '全部展開'; MTPS.LocalizedStrings.CollapseAllButtonTooltip = '全部摺疊';
+} finally { MTPS._injectNextScript_8 && MTPS._injectNextScript_8(); }</script><script class="mtps-injected" src="./data2_files/Combined.js(2).下載"></script><script src="./data2_files/broker.js.下載"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+
+        }
+    });
+} finally { MTPS._injectNextScript_10 && MTPS._injectNextScript_10(); }</script></head>
+<body class="library Chrome">
+    <div id="page">
+
+    <link type="text/css" rel="stylesheet">
+
+    <input type="hidden" id="isHeaderBleeding" value="true">
+    <div id="ux-header" dir="ltr" class="ltr msdn" ms.pgarea="header" data-device-type="desktop">
+
+      <header ms.pgarea="header">
+        <span id="singleCol"></span>
+        <span id="doubleCol"></span>
+        <span id="isMobile"></span>
+        <div>
+          <div class="row topRow" role="banner">
+            <div class="top">
+              <div class="left">
+                <a class="msdnLogoImg" href="https://msdn.microsoft.com/zh-tw" title="MSDN home" ms.cmpgrp="mslogo">
+                  <div class="clip70x15">
+                    <img alt="Microsoft Logo" id="msft-logo" class="msft-logo" src="./data2_files/HeaderFooterSprite.png">
+                  </div>
+                </a>
+                <div class="GrayPipeDiv clip1x18">
+                  <img alt="Gray Pipe" class="GrayPipe" src="./data2_files/HeaderFooterSprite.png">
+                </div>
+                  <a class="DevCenterFullNameNonMegaBlade" href="https://msdn.microsoft.com/zh-tw">Developer Network</a>
+                <a class="DevCenterFullName" href="https://msdn.microsoft.com/zh-tw">Developer Network</a>
+                <a class="DevCenterShortName" href="https://msdn.microsoft.com/zh-tw">Developer</a>
+              </div>
+              <div class="right" ms.cmpgrp="aux nav">
+                <div id="signIn" aria-label="Profile button">
+
+  <div class="profileImage"></div>
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=13&amp;ct=1505672868&amp;rver=6.7.6640.0&amp;wp=mcmbi&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=https%3a%2f%2fmsdn.microsoft.com%2fzh-tw%2flibrary%2fsystem.text.regularexpressions.regex%2528v%3dvs.110%2529.aspx&amp;lc=1028&amp;id=254354&amp;mkt=zh-tw">登入</a></div>
+
+                <div class="auxNav">
+                  <div>
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://msdn.microsoft.com/subscriptions/manage/hh442900" id="Subscriptions_2153_1" xmlns="http://www.w3.org/1999/xhtml">
+    <span style="line-height:18px;" xmlns="">MSDN 訂閱</span>
+  </a>
+</div>
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://go.microsoft.com/fwlink/?LinkId=309297&amp;clcid=0x404&amp;slcid=0x404&amp;campaign=o~msft~msdn~gettools-header~dn308572" id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">
+    <span style="line-height:18px;" xmlns="">取得工具</span>
+  </a>
+</div>
+                  </div>
+                        <div>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row middleRow">
+            <div class="expandTop" style="display: none;">
+              <div class="left"></div>
+              <div class="right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttomRowWrapper" class="bg_default">
+          <div class="row buttomRow bg_default">
+            <div class="bottom">
+              <div class="left" role="navigation" aria-label="header toc" ms.cmpgrp="main nav">
+                <a id="grip" class="menu-icon" href="javascript:void(0)" role="button" aria-label="navigation menu"></a>
+
+                <div id="drawer">
+                  <div class="toc">
+
+        <nav>
+            <ul class="navL1" ms.cmpgrp="main nav">
+                        <li class="inactive toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">下載</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+
+                                                <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" role="link" title="Visual Studio">Visual Studio</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/microsoft-sdks-msdn" role="link" title="SDK">SDK</a>
+                                        </li>
+                                        <li class="inactive toggle">
+
+                                                <a href="javascript:void(0)" title="試用版軟體" role="button" aria-expanded="false">試用版軟體</a>
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/evalcenter" title="免費下載" role="link">免費下載</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/officeevaluationresources" title="Office 資源" role="link">Office 資源</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sharepoint2013resources" title="SharePoint Server 2013 資源" role="link">SharePoint Server 2013 資源</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sqlserver2014expressresources" title="SQL Server 2014 Express 資源" role="link">SQL Server 2014 Express 資源</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/windowsserver2012r2resources" title="Windows Server 2012 資源" role="link">Windows Server 2012 資源</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">資源計劃</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive toggle">
+
+                                                <a href="javascript:void(0)" title="訂閱" role="button" aria-expanded="false">訂閱</a>
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-administration" title="系統管理員" role="link">系統管理員</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="inactive toggle">
+
+                                                <a href="javascript:void(0)" title="學生" role="button" aria-expanded="false">學生</a>
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/imagine/imagine-home" title="Microsoft Imagine" role="link">Microsoft Imagine</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/microsoftstudentpartners" title="Microsoft 學生大使" role="link">Microsoft 學生大使</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/applicationbuilder" role="link" title="ISV">ISV</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://www.microsoft.com/bizspark" role="link" title="初學者">初學者</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://events.microsoft.com/" role="link" title="活動">活動</a>
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">社群</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/magazine/dd767791" role="link" title="Magazine">Magazine</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://social.msdn.microsoft.com/forums/zh-tw/" role="link" title="論壇">論壇</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://blogs.msdn.microsoft.com/" role="link" title="部落格">部落格</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="http://aka.ms/c9-learning" role="link" title="Channel 9">Channel 9</a>
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive current toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">文件</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive current">
+
+                                                <a href="https://msdn.microsoft.com/library" role="link" title="API 及參考">API 及參考</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/developer-centers-msdn" role="link" title="開發人員中心">開發人員中心</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://code.msdn.microsoft.com/" role="link" title="範例">範例</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/mt703209" role="link" title="已停用的內容">已停用的內容</a>
+                                        </li>
+                                </ul>
+                        </li>
+            </ul>
+        </nav>
+                  </div>
+                </div>
+              </div>
+              <div class="right" ms.title="search" role="search">
+                <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get">
+      <button id="FakeHeaderSearchButton" value="Search" type="submit" class="header-search-button" role="button" aria-label="search finder" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="icon">
+        <div id="search-finder-div" class="clip16x20">
+          <img alt="search finder" id="search-finder" class="search-finder" src="./data2_files/HeaderFooterSprite.png">
+        </div>
+      </button>
+      <button id="HeaderSearchButton" style="display:none" data-searchtype="icon" data-pgarea="header" title="搜尋 MSDN" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="icon"></button>
+      <div id="searchSplitter"></div>
+      <div id="searchCloseIconDiv" class="clip16x20" tabindex="0">
+        <img alt="search clear" id="searchCloseIcon" class="search-clear-x" src="./data2_files/HeaderFooterSprite.png">
+      </div>
+      <div id="searchTextContainer" style="width: 0px; display: none;"><p role="alert" style="height: 1px;width: 1px;overflow: hidden;position: absolute;"></p>
+        <input id="HeaderSearchTextBox" name="query" type="text" aria-label="Search Input Box" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" autocomplete="off" data-searchtype="searchbox" role="combobox" aria-autocomplete="both" aria-owns="MSDNSearchAutoCompleteList" aria-live="polite" placeholder="" data-pgarea="header" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="enter-key">
+      <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font-family: &quot;Microsoft JhengHei UI&quot;, &quot;Microsoft JhengHei&quot;, PMingLiU, MingLiU, &quot;Segoe UI&quot;, &quot;Lucida Grande&quot;, Verdana, Arial, Helvetica, sans-serif; font-size: 16px;"><div id="SuggestionContainer"><ul data-pgarea="header" data-searchtype="search dropdown" id="MSDNSearchAutoCompleteList" role="listbox" aria-controls="HeaderSearchTextBox" style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="suggested keyword"></ul></div></div></div>
+    </form>
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <div id="overlayMaskHeader"></div></div>
+
+    <div id="jumpInfo" style="display: none">很抱歉。您所要求的內容已遭移除。將會在 1 秒內自動重新導向。</div>
+
+<link type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet">
+
+    <div id="breadcrumbs" ms.pgarea="body" ms.cmpgrp="breadcrumbs">
+        <div id="breadcrumbDesktop" class="breadCrumb">
+                        <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/zh-tw/library/w0x726c2(v=vs.110).aspx" title=".NET Framework 4.6 and 4.5"></a></span>
+                        <span><a href="https://msdn.microsoft.com/zh-tw/library/mt472912(v=vs.110).aspx" title=".NET Framework 類別庫"><span>.NET Framework 類別庫</span></a></span>
+                        <span><a href="https://msdn.microsoft.com/zh-tw/library/mt481586(v=vs.110).aspx" title="System.Text 命名空間"><span>System.Text 命名空間</span></a></span>
+                        <span class="breadcrumbDropSmall">
+                            <a id="breadcrumbDropDownButton" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#" targethref="https://msdn.microsoft.com/zh-tw/library/mt481586(v=vs.110).aspx" title="System.Text.RegularExpressions" role="button" aria-expanded="false"><span>System.Text.RegularExpressions</span></a>
+                        </span>
+        </div>
+        <div id="breadcrumbDropDownMenu" style="display: none;"></div>
+
+        <div id="breadcrumbTablet" class="breadCrumb">
+                        <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/zh-tw/library/mt481586(v=vs.110).aspx" title="System.Text 命名空間"></a></span>
+                    <span><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions(v=vs.110).aspx" title="System.Text.RegularExpressions"><span>System.Text.RegularExpressions</span></a></span>
+                <span class="breadcrumbDropSmall"><a id="tocDropDownButton" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#" title="Regex 類別" role="button" aria-expanded="false"><span>Regex 類別</span></a></span>
+        <div id="navigationButtons">
+            <a id="isd_print" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(d=printer,v=vs.110).aspx" rel="nofollow"><ins class="print"></ins>列印</a>
+            <a id="isd_printABook" href="https://msdn.microsoft.com/zh-tw/library/export/help/?returnurl=%2fzh-tw%2flibrary%2fsystem.text.regularexpressions.regex(v%3dvs.110).aspx">
+                <ins class="export"></ins>匯出 (<span class="count">0</span>)
+            </a>
+        </div></div>
+        <div id="tocDropDownMenu" style="display: none;"></div>
+        <div id="breadcrumbMobile" class="breadCrumb">
+                <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions(v=vs.110).aspx" title="System.Text.RegularExpressions"></a></span>
+            <span class="breadcrumbDropSmall"><a id="tocPopupButton" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#" title="Regex 類別" role="button" aria-expanded="false"><span>Regex 類別</span></a></span>
+        <div id="navigationButtons">
+            <a id="isd_print" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(d=printer,v=vs.110).aspx" rel="nofollow"><ins class="print"></ins>列印</a>
+            <a id="isd_printABook" href="https://msdn.microsoft.com/zh-tw/library/export/help/?returnurl=%2fzh-tw%2flibrary%2fsystem.text.regularexpressions.regex(v%3dvs.110).aspx">
+                <ins class="export"></ins>匯出 (<span class="count">0</span>)
+            </a>
+        </div></div>
+    </div>
+    <div id="tocPopupMenu" style="display: none;">
+        <div id="tocPopMenuClose" class="tocCloseLarge" role="button" aria-label="Close Popup Menu" tabindex="0"></div>
+        <div id="tocTitle">Regex 類別</div>
+    </div>
+
+        <div id="body" ms.pgarea="body" class="">
+            <span id="tabletView_large"></span>
+            <span id="tabletView_small"></span>
+            <span id="mobileView"></span>
+
+    <div id="leftNav" ms.cmpgrp="left toc" role="navigation" aria-label="left toc" style="height: auto;">
+
+<div id="tocnav" class="ArchiveV2">
+    <div class="tocunselected">
+        <div id="tocExpandArea" style="display: block;">
+            <span class="toc_empty"></span>
+            <span id="tocExpandButton"><a href="javascript:void(0)" aria-label="expand sibling toc" role="button"></a></span>
+        </div>
+        <div id="tocExpand"><div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.capture(v=vs.110).aspx" id="mt543174_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Capture 類別">Capture 類別</a>                </div><div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.capturecollection(v=vs.110).aspx" id="mt543219_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CaptureCollection 類別">CaptureCollection 類別</a>                </div><div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.group(v=vs.110).aspx" id="mt543182_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Group 類別">Group 類別</a>                </div><div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.groupcollection(v=vs.110).aspx" id="mt543188_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GroupCollection 類別">GroupCollection 類別</a>                </div></div>
+    <div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.match(v=vs.110).aspx" id="mt468768_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Match 類別">Match 類別</a>                </div><div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchcollection(v=vs.110).aspx" id="mt543184_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MatchCollection 類別">MatchCollection 類別</a>                </div><div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MatchEvaluator 委派">MatchEvaluator 委派</a>                </div></div>
+    <div class="tocselected"><div class="toclevel current" data-toclevel="1" data-childrenloaded="true">
+<a class="toc_expanded" href="javascript:void(0)" role="button" aria-label="摺疊目錄" aria-expanded="true"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx" id="mt543208_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Regex 類別">Regex 類別</a>                </div><div class="tocPadding"><div class="toclevel " data-toclevel="2">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.regex(v=vs.110).aspx" id="mt543228_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Regex 建構函式">Regex 建構函式</a>                </div><div class="toclevel " data-toclevel="2">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex_fields(v=vs.110).aspx" id="mt543183_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Regex 欄位">Regex 欄位</a>                </div><div class="toclevel " data-toclevel="2">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex_methods(v=vs.110).aspx" id="mt543198_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Regex 方法">Regex 方法</a>                </div><div class="toclevel " data-toclevel="2">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex_properties(v=vs.110).aspx" id="mt543173_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Regex 屬性">Regex 屬性</a>                </div></div></div>
+    <div class="tocunselected">
+
+                <div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regexcompilationinfo(v=vs.110).aspx" id="mt543186_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RegexCompilationInfo 類別">RegexCompilationInfo 類別</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regexmatchtimeoutexception(v=vs.110).aspx" id="mt543230_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RegexMatchTimeoutException 類別">RegexMatchTimeoutException 類別</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regexoptions(v=vs.110).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RegexOptions 列舉">RegexOptions 列舉</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regexrunner(v=vs.110).aspx" id="mt543256_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RegexRunner 類別">RegexRunner 類別</a>                </div>
+                <div class="toclevel " data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="展開目錄" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regexrunnerfactory(v=vs.110).aspx" id="mt543257_VS.110_zh-tw" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RegexRunnerFactory 類別">RegexRunnerFactory 類別</a>                </div>
+    </div>
+    <a id="tocMenuToggler" href="javascript:void(0)" role="button">
+        <span id="tocMenuTogglerIcon" class="tocMenuCollapse" role="button" aria-expanded="true" aria-label="Table of contents menu"></span>
+        <div id="tocMenuTogglerLabel">TOC</div>
+    </a>
+</div>            <div style="display:none">
+                <div id="CollapseLocalizeString">摺疊目錄</div>
+                <div id="ExpandLocalizeString">展開目錄</div>
+            </div>
+        <div>
+            <a id="isd_archiveControlResponsive" style="display:none;" href="javascript:void(0)" role="button" aria-label="隱藏已封存版本" data-include-archive="顯示已封存版本" data-exclude-archive="隱藏已封存版本">
+            </a>
+            <div id="isd_archiveInstrument" style="display:none">本文件已封存並已停止維護。</div>
+        </div>
+    </div>
+     <div id="content" class="content" ms.cmpgrp="content body" role="main">
+
+<div id="MTPSTranslator" class="MTPSTranslator">
+    <table class="MTPSTranslatorTable" style="width: 100%">
+        <tbody><tr>
+            <td class="TranslationAlertBox">
+                <div>本文為機器翻譯文章。如需檢視英文版，請選取 [原文] 核取方塊。您也可以將滑鼠指標移到文字上，即可在快顯視窗顯示英文原文。</div>
+            </td>
+                <td class="TranslationViewSwitcher">
+                    <div>
+                        <input title="顯示翻譯文字" value="0" name="TrnaslatorView" type="radio" class="translatechoice" checked="checked" ms.title="translated" ms.cmptyp="language selector" ms.interactiontype="16"><span>譯文</span>
+                    </div>
+                    <div>
+                        <input title="顯示英文原文" value="1" name="TrnaslatorView" type="radio" class="translatechoice" ms.title="original" ms.cmptyp="language selector" ms.interactiontype="16"><span>原文</span>
+                    </div>
+                </td>
+        </tr>
+    </tbody></table>
+</div>
+
+    <div id="archiveDisclaimerText" style="display:none">本文件已封存並已停止維護。</div>
+
+<div xmlns="http://www.w3.org/1999/xhtml">
+
+  <div class="topic">
+    <h1 class="title">Regex 類別</h1>
+
+    <div class="lw_vs">
+      <div id="curversion">
+        <strong>
+                .NET Framework (current version)
+            </strong>
+      </div>
+      <div id="versionclick">
+        <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+        <div>
+          <div>
+            <a id="vsLink" href="javascript:void(0)" role="button" aria-label="其他版本" aria-expanded="false">
+                        其他版本
+                    </a>
+          </div>
+          <div class="cl_vs_arrow clip10x10">
+            <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="./data2_files/ImageSprite.png">
+          </div>
+        </div>
+        <ul id="vsPanel">
+          <li class="archived"><a href="javascript:void(0)" role="img" title="本文件已封存並已停止維護。"></a>
+            <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.100).aspx">Visual Studio 2010</a>
+          </li>
+          <li class="archived"><a href="javascript:void(0)" role="img" title="本文件已封存並已停止維護。"></a>
+            <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.100).aspx">.NET Framework 4</a>
+          </li>
+          <li class=""><span class="emptyArchiveIcon"></span>
+            <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.95).aspx">Silverlight </a>
+          </li>
+          <li class="archived"><a href="javascript:void(0)" role="img" title="本文件已封存並已停止維護。"></a>
+            <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.90).aspx">.NET Framework 3.5</a>
+          </li>
+          <li class="archived"><a href="javascript:void(0)" role="img" title="本文件已封存並已停止維護。"></a>
+            <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.90).aspx">Visual Studio 2008</a>
+          </li>
+          <li class="archived"><a href="javascript:void(0)" role="img" title="本文件已封存並已停止維護。"></a>
+            <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.80).aspx">.NET Framework 2.0</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+    <div id="mainSection">
+      <div id="mainBody">&nbsp;<div class="section"><div class="section"><p><span id="mt1" class="sentence" data-guid="857bf87b09d22e36f21cf1d90f9ee27d" data-source="Represents an immutable regular expression." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">表示不變的規則運算式 (Regular Expression)。</sentencetext></span></p><p><span id="mt2" class="sentence" data-guid="19580f98e8482431f68664f3803aedfb" data-source="To browse the .NET Framework source code for this type, see the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;Reference Source&lt;/span&gt;&lt;/span&gt;." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">若要瀏覽此類型的 .NET Framework 原始程式碼，請參閱<a href="http://referencesource.microsoft.com/#System/regex/system/text/regularexpressions/Regex.cs#bbe3b2eb80ae5526">參考來源</a>。</sentencetext></span></p></div><strong>命名空間:
+      </strong>
+      &nbsp;
+      <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions(v=vs.110).aspx">System.Text.RegularExpressions</a><br><strong>組件:
+        </strong>&nbsp;System (於 System.dll)<br><br><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">繼承階層</span></a><div id="Anchor_0" class="LW_CollapsibleArea_Anchor_Div active"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_0" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><span id="idFamilies"></span><a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">System<span xmlns="">.</span>Object</a><br>  <span class="selflink">System.Text.RegularExpressions<span xmlns="">.</span>Regex</span><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.aspcoderegex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>AspCodeRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.aspencodedexprregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>AspEncodedExprRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.aspexprregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>AspExprRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.commentregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>CommentRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.databindexprregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>DatabindExprRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.databindregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>DataBindRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.directiveregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>DirectiveRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.endtagregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>EndTagRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.gtregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>GTRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.includeregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>IncludeRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.ltregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>LTRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.runatserverregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>RunatServerRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.servertagsregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>ServerTagsRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.simpledirectiveregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>SimpleDirectiveRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.tagregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>TagRegex</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.tagregex35(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>TagRegex35</a><br>    <a href="https://msdn.microsoft.com/zh-tw/library/system.web.regularexpressions.textregex(v=vs.110).aspx">System.Web.RegularExpressions<span xmlns="">.</span>TextRegex</a><br></div></div><br><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">語法</span></a><div id="Anchor_1" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_1" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock">
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=cpp#code-snippet-1">C++</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=fsharp#code-snippet-1">F#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-1">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="複製到剪貼簿。" href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_fafc6ba5-fdc9-428d-bae3-0f180ffefc5f&#39;);" ms.cmptyp="CodeSnippet">複製</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_fafc6ba5-fdc9-428d-bae3-0f180ffefc5f" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>[SerializableAttribute]
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Regex : ISerializable
+</pre></div>
+        </div>
+    </div>
+</div>
+</div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">建構函式</span></a><div id="Anchor_2" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_2" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idConstructors" responsive="true" summary="table"><tbody><tr responsive="true"><th class="iconColumn" scope="col"></th><th class="nameColumn" scope="col">名稱</th><th class="descriptionColumn" scope="col">描述</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/594w4665(v=vs.110).aspx">Regex<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt3" class="sentence" data-guid="6e2f4d3e04e68f9ac16a4140a3a1a372" data-source="Initializes a new instance of the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; class." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">初始化 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 類別的新執行個體。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ms149468(v=vs.110).aspx">Regex<span xmlns="">(SerializationInfo, StreamingContext)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt4" class="sentence" data-guid="f95663e073046c296f3d641bb40a5fa9" data-source="Initializes a new instance of the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; class by using serialized data." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用序列化的資料，初始化 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 類別的新執行個體。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/43122zyz(v=vs.110).aspx">Regex<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt5" class="sentence" data-guid="1332128dfda18f86579d043834b7d726" data-source="Initializes a new instance of the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; class for the specified regular expression." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">初始化的新執行個體 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 指定的規則運算式的類別。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/h5845fdz(v=vs.110).aspx">Regex<span xmlns="">(String, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt6" class="sentence" data-guid="e1f06c2b46b34128acdce797f2a02ef3" data-source="Initializes a new instance of the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; class for the specified regular expression, with options that modify the pattern." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">初始化的新執行個體 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 類別指定的規則運算式，以修改模式的選項。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh160196(v=vs.110).aspx">Regex<span xmlns="">(String, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt7" class="sentence" data-guid="3f1f0ac3ca28418a904128460acf86ef" data-source="Initializes a new instance of the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; class for the specified regular expression, with options that modify the pattern and a value that specifies how long a pattern matching method should attempt a match before it times out." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">初始化的新執行個體 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 逾時前所指定的規則運算式，有選項可修改模式和值，指定時間長度的模式比對方法的類別應該嘗試比對。</sentencetext></span></p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">屬性</span></a><div id="Anchor_3" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_3" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idProperties" responsive="true" summary="table"><tbody><tr responsive="true"><th class="iconColumn" scope="col"></th><th class="nameColumn" scope="col">名稱</th><th class="descriptionColumn" scope="col">描述</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="./data2_files/IC74937.jpeg" title="System_CAPS_pubproperty" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.cachesize(v=vs.110).aspx"><span xmlns="">CacheSize</span></a></td><td data-th="描述"><div class="section"><p><span id="mt8" class="sentence" data-guid="48152e4e8d0d6d5cd49cbc55316bf2cc" data-source="Gets or sets the maximum number of entries in the current static cache of compiled regular expressions." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">取得或設定在已編譯規則運算式目前靜態快取中項目的最大數目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="./data2_files/IC74937.jpeg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.matchtimeout(v=vs.110).aspx"><span xmlns="">MatchTimeout</span></a></td><td data-th="描述"><div class="section"><p><span id="mt9" class="sentence" data-guid="544aa0b463aa5cd9bc57207415f2a354" data-source="Gets the time-out interval of the current instance." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">取得目前執行個體的逾時間隔。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="./data2_files/IC74937.jpeg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.options(v=vs.110).aspx"><span xmlns="">Options</span></a></td><td data-th="描述"><div class="section"><p><span id="mt10" class="sentence" data-guid="c7307dff5a944344251669a47cc13d8c" data-source="Gets the options that were passed into the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">取得已傳遞至選項 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubproperty" alt="System_CAPS_pubproperty" src="./data2_files/IC74937.jpeg" title="System_CAPS_pubproperty" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.righttoleft(v=vs.110).aspx"><span xmlns="">RightToLeft</span></a></td><td data-th="描述"><div class="section"><p><span id="mt11" class="sentence" data-guid="7676063cb381e52c798299ec2add8b4e" data-source="Gets a value that indicates whether the regular expression searches from right to left." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">取得值，指出規則運算式是否由右至左搜尋。</sentencetext></span></p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">方法</span></a><div id="Anchor_4" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_4" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idMethods" responsive="true" summary="table"><tbody><tr responsive="true"><th class="iconColumn" scope="col"></th><th class="nameColumn" scope="col">名稱</th><th class="descriptionColumn" scope="col">描述</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/9ek5zak6(v=vs.110).aspx">CompileToAssembly<span xmlns="">(RegexCompilationInfo[], AssemblyName)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt12" class="sentence" data-guid="1834d58f7126f5ddfdc206ebf55f04be" data-source="Compiles one or more specified &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; objects to a named assembly." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">編譯一或多個指定 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 的具名組件的物件。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ew6t47sw(v=vs.110).aspx">CompileToAssembly<span xmlns="">(RegexCompilationInfo[], AssemblyName, CustomAttributeBuilder[])</span></a></td><td data-th="描述"><div class="section"><p><span id="mt13" class="sentence" data-guid="70030728befe4892cd4d051a5b596b78" data-source="Compiles one or more specified &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; objects to a named assembly with the specified attributes." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">編譯一或多個指定 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 具有指定屬性的具名組件的物件。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/5a9btak8(v=vs.110).aspx">CompileToAssembly<span xmlns="">(RegexCompilationInfo[], AssemblyName, CustomAttributeBuilder[], String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt14" class="sentence" data-guid="5238b965c617166c143c779ef00f5c9e" data-source="Compiles one or more specified &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; objects and a specified resource file to a named assembly with the specified attributes." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">編譯一或多個指定 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 物件和指定的資源檔具有指定屬性的具名組件。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/bsc2ak47(v=vs.110).aspx">Equals<span xmlns="">(Object)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt15" class="sentence" data-guid="b238d552a92742e9109fc6dea0b89329" data-source="Determines whether the specified object is equal to the current object." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">判斷指定的物件是否等於目前的物件。</sentencetext></span>(繼承自 <a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">Object</a>。)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.escape(v=vs.110).aspx">Escape<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt16" class="sentence" data-guid="67db2a4c6c528e661fd9fa5e7c5b94ef" data-source="Escapes a minimal set of characters (\, *, +, ?, |, {, [, (,), ^, $,., #, and white space) by replacing them with their escape codes." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">
+  <sentencetext xmlns="http://www.w3.org/1999/xhtml">以逸出碼取代 (\、*、+、?、|、{、[、(、)、^、$、.、# 和泛空白字元) 等字元。</sentencetext>
+</sentencetext></span><span id="mt17" class="sentence" data-guid="53177ced9478c8565988627033529546" data-source=" This instructs the regular expression engine to interpret these characters literally rather than as metacharacters." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 這樣會指示規則運算式引擎將這些字元解譯為常值，而非解譯為中繼字元。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.object.finalize(v=vs.110).aspx">Finalize<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt18" class="sentence" data-guid="dffa994726b89884494fb20a342cb288" data-source="Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">
+  <sentencetext xmlns="http://www.w3.org/1999/xhtml">允許物件在記憶體回收進行回收之前，嘗試釋放資源並執行其他清除作業。</sentencetext>
+</sentencetext></span>(繼承自 <a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">Object</a>。)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.getgroupnames(v=vs.110).aspx">GetGroupNames<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt19" class="sentence" data-guid="ad893da0c6662b78f64d22aac0bf6032" data-source="Returns an array of capturing group names for the regular expression." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">傳回規則運算式的擷取群組名稱的陣列。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.getgroupnumbers(v=vs.110).aspx">GetGroupNumbers<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt20" class="sentence" data-guid="711964f68f705e3e90e779fbafd9deb1" data-source="Returns an array of capturing group numbers that correspond to group names in an array." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">傳回對應陣列中群組名稱的擷取群組編號的陣列。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.object.gethashcode(v=vs.110).aspx">GetHashCode<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt21" class="sentence" data-guid="5504d4b0e3b9d98cc60034ea2884dfcd" data-source="Serves as the default hash function." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">做為預設雜湊函式。</sentencetext></span>(繼承自 <a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">Object</a>。)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.object.gettype(v=vs.110).aspx">GetType<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt22" class="sentence" data-guid="85193ef7796c7fbc8002ffc065a3a6e1" data-source="Gets the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;Type&lt;/span&gt;&lt;/span&gt; of the current instance." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">取得目前執行個體的 <a href="https://msdn.microsoft.com/zh-tw/library/system.type(v=vs.110).aspx">Type</a>。</sentencetext></span>(繼承自 <a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">Object</a>。)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.groupnamefromnumber(v=vs.110).aspx">GroupNameFromNumber<span xmlns="">(Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt23" class="sentence" data-guid="3cf93c3bae96ecb1f86122311d560d30" data-source="Gets the group name that corresponds to the specified group number." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">取得對應指定群組編號的群組名稱。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.groupnumberfromname(v=vs.110).aspx">GroupNumberFromName<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt24" class="sentence" data-guid="e1f676bb95ac2e9787fb9a4469d8c87e" data-source="Returns the group number that corresponds to the specified group name." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">傳回對應指定群組名稱的群組編號。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.initializereferences(v=vs.110).aspx">InitializeReferences<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt25" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/3y21t6y4(v=vs.110).aspx">IsMatch<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt26" class="sentence" data-guid="91590bb95a92932a87b2bef95430c781" data-source="Indicates whether the regular expression specified in the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor finds a match in a specified input string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">指出是否在指定的規則運算式 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式中指定的輸入字串中尋找相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/z1hx7a5y(v=vs.110).aspx">IsMatch<span xmlns="">(String, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt27" class="sentence" data-guid="a49ec357f10b8f4e1d6711d2c7a39be9" data-source="Indicates whether the regular expression specified in the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor finds a match in the specified input string, beginning at the specified starting position in the string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">指出是否在指定的規則運算式 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式中指定的輸入字串，字串中指定的起始位置開始尋找符合的結果。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/sdx2bds0(v=vs.110).aspx">IsMatch<span xmlns="">(String, String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt28" class="sentence" data-guid="48cbe961a4e3c3452064b4551e533df6" data-source="Indicates whether the specified regular expression finds a match in the specified input string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">表示指定的規則運算式是否在指定的輸入字串中尋找相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ktzf2d23(v=vs.110).aspx">IsMatch<span xmlns="">(String, String, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt29" class="sentence" data-guid="a3861f8a033e0df87aab71fee3b1794a" data-source="Indicates whether the specified regular expression finds a match in the specified input string, using the specified matching options." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">表示指定的規則運算式是否使用指定的比對選項，在指定的輸入字串中尋找相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh160210(v=vs.110).aspx">IsMatch<span xmlns="">(String, String, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt30" class="sentence" data-guid="d22e5addead1bbcb122db5a1dbfd9d2c" data-source="Indicates whether the specified regular expression finds a match in the specified input string, using the specified matching options and time-out interval." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">指出指定的規則運算式是否使用指定的比對選項和逾時間隔，在指定的輸入字串中尋找相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/twcw2f1c(v=vs.110).aspx">Match<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt31" class="sentence" data-guid="1000d366803b6598a364f0a0237ad6cc" data-source="Searches the specified input string for the first occurrence of the regular expression specified in the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">搜尋指定的輸入的字串中指定的規則運算式的第一個相符項目 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/3583dcyh(v=vs.110).aspx">Match<span xmlns="">(String, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt32" class="sentence" data-guid="306f5b541488c8726adc3a00fb6988a5" data-source="Searches the input string for the first occurrence of a regular expression, beginning at the specified starting position in the string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">從字串中指定的開始位置開始，在輸入字串中搜尋規則運算式的第一個相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/h09aybcd(v=vs.110).aspx">Match<span xmlns="">(String, Int32, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt33" class="sentence" data-guid="4f2dc9a59e51f668021184983934db3f" data-source="Searches the input string for the first occurrence of a regular expression, beginning at the specified starting position and searching only the specified number of characters." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">從指定的開始位置開始並且僅搜尋指定數目的字元，在輸入字串中搜尋規則運算式的第一個相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/0z2heewz(v=vs.110).aspx">Match<span xmlns="">(String, String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt34" class="sentence" data-guid="78e5a55f031a3a141a7d4f57c2507881" data-source="Searches the specified input string for the first occurrence of the specified regular expression." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中搜尋所指定規則運算式的第一個相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/bk1x0726(v=vs.110).aspx">Match<span xmlns="">(String, String, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt35" class="sentence" data-guid="f088b4feb33c2f5491d74db31f52a90f" data-source="Searches the input string for the first occurrence of the specified regular expression, using the specified matching options." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用指定的比對選項，在輸入字串中搜尋所指定規則運算式的第一個相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh160204(v=vs.110).aspx">Match<span xmlns="">(String, String, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt36" class="sentence" data-guid="a04ca2a6599468a3497222c4a960b2c1" data-source="Searches the input string for the first occurrence of the specified regular expression, using the specified matching options and time-out interval." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用指定的比對選項和逾時間隔，在輸入字串中搜尋所指定規則運算式的第一個相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/e7sf90t3(v=vs.110).aspx">Matches<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt37" class="sentence" data-guid="4ae7275c9cbed455de620e07d6826f6a" data-source="Searches the specified input string for all occurrences of a regular expression." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串搜尋規則運算式的所有項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/z9ekkwhs(v=vs.110).aspx">Matches<span xmlns="">(String, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt38" class="sentence" data-guid="e15e69886cb20d5565b68bf0ce042053" data-source="Searches the specified input string for all occurrences of a regular expression, beginning at the specified starting position in the string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">自字串中指定的開始位置開始，在指定的輸入字串搜尋規則運算式的所有項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/b9712a7w(v=vs.110).aspx">Matches<span xmlns="">(String, String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt39" class="sentence" data-guid="d48fdc997f85b85ce4c217065ff2b99b" data-source="Searches the specified input string for all occurrences of a specified regular expression." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串搜尋所指定規則運算式的所有相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/b49yw9s8(v=vs.110).aspx">Matches<span xmlns="">(String, String, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt40" class="sentence" data-guid="8f35891d93264195b58cfac1ade33222" data-source="Searches the specified input string for all occurrences of a specified regular expression, using the specified matching options." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用指定的比對選項在指定的輸入字串中，搜尋所指定規則運算式的所有相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh160201(v=vs.110).aspx">Matches<span xmlns="">(String, String, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt41" class="sentence" data-guid="93123a0fdf1506c0bd688db7bacefa5d" data-source="Searches the specified input string for all occurrences of a specified regular expression, using the specified matching options and time-out interval." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用指定的比對選項和逾時間隔，在指定的輸入字串中搜尋所指定規則運算式的所有相符項目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.object.memberwiseclone(v=vs.110).aspx">MemberwiseClone<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt42" class="sentence" data-guid="ef110b3cd3e9765e45ce183fdbcd688e" data-source="Creates a shallow copy of the current &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;Object&lt;/span&gt;&lt;/span&gt;." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">建立目前 <a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">Object</a> 的淺層複製。</sentencetext></span>(繼承自 <a href="https://msdn.microsoft.com/zh-tw/library/system.object(v=vs.110).aspx">Object</a>。)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/cft8645c(v=vs.110).aspx">Replace<span xmlns="">(String, MatchEvaluator)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt43" class="sentence" data-guid="d139f56e89e8f0987c2be87c6941e5cf" data-source="In a specified input string, replaces all strings that match a specified regular expression with a string returned by a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;MatchEvaluator&lt;/span&gt;&lt;/span&gt; delegate." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用由 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx">MatchEvaluator</a> 委派所傳回的字串，取代所有與指定之規則運算式相符的字串。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/e47f3dkc(v=vs.110).aspx">Replace<span xmlns="">(String, MatchEvaluator, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt44" class="sentence" data-guid="1c58131f835ad07d45b5f1fcccfd1a61" data-source="In a specified input string, replaces a specified maximum number of strings that match a regular expression pattern with a string returned by a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;MatchEvaluator&lt;/span&gt;&lt;/span&gt; delegate." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串來取代符合規則運算式模式所傳回的字串的字串指定最大數目 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx">MatchEvaluator</a> 委派。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ms149474(v=vs.110).aspx">Replace<span xmlns="">(String, MatchEvaluator, Int32, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt45" class="sentence" data-guid="250e1380c9fa3b5e10e25d7a87108373" data-source="In a specified input substring, replaces a specified maximum number of strings that match a regular expression pattern with a string returned by a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;MatchEvaluator&lt;/span&gt;&lt;/span&gt; delegate." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入子字串，來取代符合規則運算式模式所傳回的字串的字串指定最大數目 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx">MatchEvaluator</a> 委派。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/xwewhkd1(v=vs.110).aspx">Replace<span xmlns="">(String, String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt46" class="sentence" data-guid="429d3a065b2816635a9ec097d25b7a3d" data-source="In a specified input string, replaces all strings that match a regular expression pattern with a specified replacement string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用指定的取代字串來取代符合規則運算式模式的所有字串。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/haekbhys(v=vs.110).aspx">Replace<span xmlns="">(String, String, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt47" class="sentence" data-guid="583d185833ca787ebc71a079364038b6" data-source="In a specified input string, replaces a specified maximum number of strings that match a regular expression pattern with a specified replacement string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用指定的取代字串來取代符合規則運算式模式的指定最大字串數目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/3fky5t5f(v=vs.110).aspx">Replace<span xmlns="">(String, String, Int32, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt48" class="sentence" data-guid="7995a1f632f8bdce2e57af6c14cf53ac" data-source="In a specified input substring, replaces a specified maximum number of strings that match a regular expression pattern with a specified replacement string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入子字串中，使用指定的取代字串來取代符合規則運算式模式的指定最大字串數目。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ht1sxswy(v=vs.110).aspx">Replace<span xmlns="">(String, String, MatchEvaluator)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt49" class="sentence" data-guid="d139f56e89e8f0987c2be87c6941e5cf" data-source="In a specified input string, replaces all strings that match a specified regular expression with a string returned by a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;MatchEvaluator&lt;/span&gt;&lt;/span&gt; delegate." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用由 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx">MatchEvaluator</a> 委派所傳回的字串，取代所有與指定之規則運算式相符的字串。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ms149475(v=vs.110).aspx">Replace<span xmlns="">(String, String, MatchEvaluator, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt50" class="sentence" data-guid="d139f56e89e8f0987c2be87c6941e5cf" data-source="In a specified input string, replaces all strings that match a specified regular expression with a string returned by a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;MatchEvaluator&lt;/span&gt;&lt;/span&gt; delegate." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用由 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx">MatchEvaluator</a> 委派所傳回的字串，取代所有與指定之規則運算式相符的字串。</sentencetext></span><span id="mt51" class="sentence" data-guid="e89ad656af217a0062024779b4731640" data-source=" Specified options modify the matching operation." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 指定的選項會修改符合的作業。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh194609(v=vs.110).aspx">Replace<span xmlns="">(String, String, MatchEvaluator, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt52" class="sentence" data-guid="9cef419a0e7b24f4814d6fe9bc21f01b" data-source="In a specified input string, replaces all substrings that match a specified regular expression with a string returned by a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;MatchEvaluator&lt;/span&gt;&lt;/span&gt; delegate." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.matchevaluator(v=vs.110).aspx">MatchEvaluator</a> 委派所傳回的字串，取代所有與指定之規則運算式相符的子字串。</sentencetext></span><span id="mt53" class="sentence" data-guid="c605c79b8d6f62623976e75cd63eae92" data-source=" Additional parameters specify options that modify the matching operation and a time-out interval if no match is found." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 如果沒有找到相符項目，其他參數會指定修改比對作業的選項和逾時間隔。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/e7f5w83z(v=vs.110).aspx">Replace<span xmlns="">(String, String, String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt54" class="sentence" data-guid="b148a0ace6a8592aea30e343eb0c361b" data-source="In a specified input string, replaces all strings that match a specified regular expression with a specified replacement string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用指定的取代字串來取代符合指定之規則運算式的所有字串。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/taz3ak2f(v=vs.110).aspx">Replace<span xmlns="">(String, String, String, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt55" class="sentence" data-guid="b148a0ace6a8592aea30e343eb0c361b" data-source="In a specified input string, replaces all strings that match a specified regular expression with a specified replacement string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用指定的取代字串來取代符合指定之規則運算式的所有字串。</sentencetext></span><span id="mt56" class="sentence" data-guid="e89ad656af217a0062024779b4731640" data-source=" Specified options modify the matching operation." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 指定的選項會修改符合的作業。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh194617(v=vs.110).aspx">Replace<span xmlns="">(String, String, String, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt57" class="sentence" data-guid="b148a0ace6a8592aea30e343eb0c361b" data-source="In a specified input string, replaces all strings that match a specified regular expression with a specified replacement string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的輸入字串中，使用指定的取代字串來取代符合指定之規則運算式的所有字串。</sentencetext></span><span id="mt58" class="sentence" data-guid="c605c79b8d6f62623976e75cd63eae92" data-source=" Additional parameters specify options that modify the matching operation and a time-out interval if no match is found." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 如果沒有找到相符項目，其他參數會指定修改比對作業的選項和逾時間隔。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/ze12yx1d(v=vs.110).aspx">Split<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt59" class="sentence" data-guid="719eb230e3f1522a56afcb1f9253d1a4" data-source="Splits an input string into an array of substrings at the positions defined by a regular expression pattern specified in the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">將輸入的字串分割成子字串中指定的規則運算式模式所定義的位置陣列 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/98awefz7(v=vs.110).aspx">Split<span xmlns="">(String, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt60" class="sentence" data-guid="a840faecf5e77ca1c426ab84473e5685" data-source="Splits an input string a specified maximum number of times into an array of substrings, at the positions defined by a regular expression specified in the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">將輸入字串分隔時間指定最大數目的子字串，定義規則運算式中指定的位置陣列 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/t0zfk0w1(v=vs.110).aspx">Split<span xmlns="">(String, Int32, Int32)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt61" class="sentence" data-guid="a840faecf5e77ca1c426ab84473e5685" data-source="Splits an input string a specified maximum number of times into an array of substrings, at the positions defined by a regular expression specified in the &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; constructor." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">將輸入字串分隔時間指定最大數目的子字串，定義規則運算式中指定的位置陣列 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 建構函式。</sentencetext></span><span id="mt62" class="sentence" data-guid="4d4c0b1aa9c25cd1620eebb3b0afeea1" data-source=" The search for the regular expression pattern starts at a specified character position in the input string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 規則運算式模式從輸入字串中指定的字元位置開始搜尋。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/8yttk7sy(v=vs.110).aspx">Split<span xmlns="">(String, String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt63" class="sentence" data-guid="3319214a17a27c1a0cb95d1b747e5bde" data-source="Splits an input string into an array of substrings at the positions defined by a regular expression pattern." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在規則運算式模式所定義的位置，將輸入字串分割成子字串陣列。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/byy2946e(v=vs.110).aspx">Split<span xmlns="">(String, String, RegexOptions)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt64" class="sentence" data-guid="7448a732dff1167b9794f2793b8bf3e5" data-source="Splits an input string into an array of substrings at the positions defined by a specified regular expression pattern." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的規則運算式模式所定義的位置，將輸入字串分割成子字串陣列。</sentencetext></span><span id="mt65" class="sentence" data-guid="e89ad656af217a0062024779b4731640" data-source=" Specified options modify the matching operation." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 指定的選項會修改符合的作業。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/hh160264(v=vs.110).aspx">Split<span xmlns="">(String, String, RegexOptions, TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt66" class="sentence" data-guid="7448a732dff1167b9794f2793b8bf3e5" data-source="Splits an input string into an array of substrings at the positions defined by a specified regular expression pattern." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在指定的規則運算式模式所定義的位置，將輸入字串分割成子字串陣列。</sentencetext></span><span id="mt67" class="sentence" data-guid="c605c79b8d6f62623976e75cd63eae92" data-source=" Additional parameters specify options that modify the matching operation and a time-out interval if no match is found." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml"> 如果沒有找到相符項目，其他參數會指定修改比對作業的選項和逾時間隔。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.tostring(v=vs.110).aspx">ToString<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p><span id="mt68" class="sentence" data-guid="4e41af30e878cb07a121c076e644f277" data-source="Returns the regular expression pattern that was passed into the &lt;strong&gt;Regex&lt;/strong&gt; constructor." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">傳回已傳入的規則運算式模式 <strong xmlns="http://www.w3.org/1999/xhtml">Regex</strong> 建構函式。</sentencetext></span>(覆寫 <a href="https://msdn.microsoft.com/zh-tw/library/system.object.tostring(v=vs.110).aspx">Object<span xmlns="">.</span>ToString<span xmlns="">()</span></a>。)</p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubmethod" alt="System_CAPS_pubmethod" src="./data2_files/IC91302.jpeg" title="System_CAPS_pubmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.unescape(v=vs.110).aspx">Unescape<span xmlns="">(String)</span></a></td><td data-th="描述"><div class="section"><p><span id="mt69" class="sentence" data-guid="d48caff2d8ae25c7c7836418bc558ad0" data-source="Converts any escaped characters in the input string." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">轉換輸入字串中任何逸出的字元。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.useoptionc(v=vs.110).aspx">UseOptionC<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt70" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.useoptionr(v=vs.110).aspx">UseOptionR<span xmlns="">()</span></a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt71" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protmethod" alt="System_CAPS_protmethod" src="./data2_files/IC155188.jpeg" title="System_CAPS_protmethod" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.validatematchtimeout(v=vs.110).aspx">ValidateMatchTimeout<span xmlns="">(TimeSpan)</span></a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt72" class="sentence" data-guid="bd9a06de9f4b678b2c93891a2bcaf541" data-source="Checks whether a time-out interval is within an acceptable range." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">檢查逾時間隔是否在可接受的範圍內。</sentencetext></span></p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">欄位</span></a><div id="Anchor_5" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_5" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idFields" responsive="true" summary="table"><tbody><tr responsive="true"><th class="iconColumn" scope="col"></th><th class="nameColumn" scope="col">名稱</th><th class="descriptionColumn" scope="col">描述</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/zb2d3s9z(v=vs.110).aspx">capnames</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt73" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/8d1bt4fx(v=vs.110).aspx">caps</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt74" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.capsize(v=vs.110).aspx">capsize</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt75" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.capslist(v=vs.110).aspx">capslist</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt76" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.factory(v=vs.110).aspx">factory</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt77" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubfield" alt="System_CAPS_pubfield" src="./data2_files/IC157541.jpeg" title="System_CAPS_pubfield" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-static" alt="System_CAPS_static" src="./data2_files/IC64394.jpeg" title="System_CAPS_static" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.infinitematchtimeout(v=vs.110).aspx">InfiniteMatchTimeout</a></td><td data-th="描述"><div class="section"><p><span id="mt78" class="sentence" data-guid="469cc60535a9d0b838ff5ab4e6b010b6" data-source="Specifies that a pattern-matching operation should not time out." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">指定模式比對作業不應逾時。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.internalmatchtimeout(v=vs.110).aspx">internalMatchTimeout</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt79" class="sentence" data-guid="909e2ac631c51b2218978359990cfd4b" data-source="The maximum amount of time that can elapse in a pattern-matching operation before the operation times out." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">在作業逾時之前可在模式比對作業中流逝的最長時間。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.pattern(v=vs.110).aspx">pattern</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt80" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-protfield" alt="System_CAPS_protfield" src="./data2_files/IC20847.jpeg" title="System_CAPS_protfield" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.roptions(v=vs.110).aspx">roptions</a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt81" class="sentence" data-guid="a137d194f35fb78a49bf816f8a7aad52" data-source="Used by a &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object generated by the &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;CompileToAssembly&lt;/span&gt;&lt;/span&gt; method." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">使用 <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 所產生的物件 <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex.compiletoassembly(v=vs.110).aspx">CompileToAssembly</a> 方法。</sentencetext></span></p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">明確介面實作</span></a><div id="Anchor_6" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_6" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="contentTableWrapper"><table id="idExplicitInterfaceImplementation" responsive="true" summary="table"><tbody><tr responsive="true"><th class="iconColumn" scope="col"></th><th class="nameColumn" scope="col">名稱</th><th class="descriptionColumn" scope="col">描述</th></tr><tr><td data-th=""><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-pubinterface" alt="System_CAPS_pubinterface" src="./data2_files/IC141795.jpeg" title="System_CAPS_pubinterface" xmlns=""></span><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-privmethod" alt="System_CAPS_privmethod" src="./data2_files/IC6709.jpeg" title="System_CAPS_privmethod" xmlns=""></span></td><td data-th="名稱"><a href="https://msdn.microsoft.com/zh-tw/library/bb352733(v=vs.110).aspx">ISerializable<span xmlns="">.</span>GetObjectData<span xmlns="">(SerializationInfo, StreamingContext)</span></a></td><td data-th="描述"><div class="section"><p>
+        此 API 支援 產品 基礎結構，而且不適合直接從程式碼使用。
+      <span id="mt82" class="sentence" data-guid="239605a24532a4320f95e064ca8eafdf" data-source="Populates a &lt;span class=&quot;mtpsTagOuterHtml&quot; &gt;&lt;span&gt;SerializationInfo&lt;/span&gt;&lt;/span&gt; object with the data necessary to deserialize the current &lt;span class=&quot;selflink&quot;&gt;Regex&lt;/span&gt; object." xml:space="preserve"><sentencetext xmlns="http://www.w3.org/1999/xhtml">將還原序列化目前 <a href="https://msdn.microsoft.com/zh-tw/library/system.runtime.serialization.serializationinfo(v=vs.110).aspx">SerializationInfo</a> 物件所需的資料填入 (Populate) <span class="selflink" xmlns="http://www.w3.org/1999/xhtml">Regex</span> 物件。</sentencetext></span></p></div></td></tr></tbody></table></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">註解</span></a><div id="Anchor_7" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_7" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="section"><div class="alert"><div class="contentTableWrapper"><table summary="table"><tbody><tr><th align="left" scope="col"><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-note" alt="System_CAPS_note" src="./data2_files/IC101471.jpeg" title="System_CAPS_note" xmlns=""></span><span class="alertTitle">注意 </span></th></tr><tr><td><p>To view the .NET Framework source code for this type, see the Reference Sourcehttp://referencesource.microsoft.com/#System/regex/system/text/regularexpressions/Regex.cs#bbe3b2eb80ae5526. You can browse through the source code online, download the reference for offline viewing, and step through the sources (including patches and updates) during debugging; see instructionshttp://referencesource.microsoft.com/.</p></td></tr></tbody></table></div></div><p></p><p>The T:System.Text.RegularExpressions.Regex class represents the .NET Framework's regular expression engine. It can be used to quickly parse large amounts of text to find specific character patterns; to extract, edit, replace, or delete text substrings; and to add the extracted strings to a collection to generate a report.</p><div class="alert"><div class="contentTableWrapper"><table summary="table"><tbody><tr><th align="left" scope="col"><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-note" alt="System_CAPS_note" src="./data2_files/IC101471.jpeg" title="System_CAPS_note" xmlns=""></span><span class="alertTitle">注意 </span></th></tr><tr><td><p>If your primary interest is to validate a string by determining whether it conforms to a particular pattern, you can use the T:System.Configuration.RegexStringValidator class.</p></td></tr></tbody></table></div></div><p></p><p>To use regular expressions, you define the pattern that you want to identify in a text stream by using the syntax documented in Regular Expression Language Elements. Next, you can optionally instantiate a T:System.Text.RegularExpressions.Regex object. Finally, you call a method that performs some operation, such as replacing text that matches the regular expression pattern, or identifying a pattern match.</p><div class="alert"><div class="contentTableWrapper"><table summary="table"><tbody><tr><th align="left" scope="col"><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-note" alt="System_CAPS_note" src="./data2_files/IC101471.jpeg" title="System_CAPS_note" xmlns=""></span><span class="alertTitle">注意 </span></th></tr><tr><td><p>For some common regular expression patterns, see Regular Expression Examples. There are also a number of online libraries of regular expression patterns, such as the one at Regular-Expressions.infohttp://www.regular-expressions.info/examples.html. </p></td></tr></tbody></table></div></div></div><a id="remarks"></a><div><h3 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="Collapse" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title"></span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h3><div class="sectionblock"><div class="section"><p>For more information about using the T:System.Text.RegularExpressions.Regex class, see the following sections in this topic:</p><ul class="unordered"><li><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#regex_vs_string">Regex vs. String Methods</a></p></li><li><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#static_vs_instance">Static vs. Instance Methods</a></p></li><li><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#regex_ops">Performing Regular Expression Operations</a></p></li><li><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#define_timeout">Defining a Time-Out Value</a></p></li></ul><p>For more information about the regular expression language, see Regular Expression Language Elements or download and print one of these brochures: </p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quick Reference in Word (.docx) formathttp://download.microsoft.com/download/D/2/4/D240EBF6-A9BA-4E4F-A63F-AEB6DA0B921C/Regular expressions quick reference.docx
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quick Reference in PDF (.pdf) formathttp://download.microsoft.com/download/D/2/4/D240EBF6-A9BA-4E4F-A63F-AEB6DA0B921C/Regular expressions quick reference.pdf</p></div></div></div><a id="regex_vs_string"></a><div><h3 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="Collapse" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Regex vs. String Methods</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h3><div class="sectionblock"><div class="section"><p>The T:System.String class includes several search and comparison methods that you can use to perform pattern matching with text. For example, the M:System.String.Contains(System.String), M:System.String.EndsWith(System.String), and M:System.String.StartsWith(System.String) methods determine whether a string instance contains a specified substring; and the M:System.String.IndexOf(System.String), M:System.String.IndexOfAny(System.Char[]), M:System.String.LastIndexOf(System.String), and M:System.String.LastIndexOfAny(System.Char[],System.Int32,System.Int32) methods return the starting position of a specified substring in a string. Use the methods of the T:System.String class when you are searching for a specific string. Use the T:System.Text.RegularExpressions.Regex class when you are searching for a specific pattern in a string. For more information and examples, see .NET Framework Regular Expressions.</p><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#remarks">Back to Remarks</a></p></div></div></div><a id="static_vs_instance"></a><div><h3 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="Collapse" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Static vs. Instance Methods</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h3><div class="sectionblock"><div class="section"><p>After you define a regular expression pattern, you can provide it to the regular expression engine in either of two ways:</p><ul class="unordered"><li><p>By instantiating a T:System.Text.RegularExpressions.Regex object that represents the regular expression. To do this, you pass the regular expression pattern to a M:System.Text.RegularExpressions.Regex.#ctor(System.String) constructor. A T:System.Text.RegularExpressions.Regex object is immutable; when you instantiate a T:System.Text.RegularExpressions.Regex object with a regular expression, that object's regular expression cannot be changed.</p></li><li><p>By supplying both the regular expression and the text to search to a static (Shared in Visual Basic) T:System.Text.RegularExpressions.Regex method. This enables you to use a regular expression without explicitly creating a T:System.Text.RegularExpressions.Regex object.</p></li></ul><p>All T:System.Text.RegularExpressions.Regex pattern identification methods include both static and instance overloads. </p><p>The regular expression engine must compile a particular pattern before the pattern can be used. Because T:System.Text.RegularExpressions.Regex objects are immutable, this is a one-time procedure that occurs when a T:System.Text.RegularExpressions.Regex class constructor or a static method is called. To eliminate the need to repeatedly compile a single regular expression, the regular expression engine caches the compiled regular expressions used in static method calls. As a result, regular expression pattern-matching methods offer comparable performance for static and instance methods.</p><div class="alert"><div class="contentTableWrapper"><table summary="table"><tbody><tr><th align="left" scope="col"><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-important" alt="System_CAPS_important" src="./data2_files/IC160177.jpeg" title="System_CAPS_important" xmlns=""></span><span class="alertTitle">重要 </span></th></tr><tr><td><p>In the .NET Framework versions 1.0 and 1.1, all compiled regular expressions, whether they were used in instance or static method calls, were cached. Starting with the .NET Framework 2.0, only regular expressions used in static method calls are cached.</p></td></tr></tbody></table></div></div><p>However, caching can adversely affect performance in the following two cases:</p><ul class="unordered"><li><p>When you use static method calls with a large number of regular expressions. By default, the regular expression engine caches the 15 most recently used static regular expressions. If your application uses more than 15 static regular expressions, some regular expressions must be recompiled. To prevent this recompilation, you can increase the P:System.Text.RegularExpressions.Regex.CacheSize property.</p></li><li><p>When you instantiate new T:System.Text.RegularExpressions.Regex objects with regular expressions that have previously been compiled. For example, the following code defines a regular expression to locate duplicated words in a text stream. Although the example uses a single regular expression, it instantiates a new T:System.Text.RegularExpressions.Regex object to process each line of text. This results in the recompilation of the regular expression with each iteration of the loop.</p>
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-2">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="複製到剪貼簿。" href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_87b56b44-9193-4ff5-a105-ac11cfd14967&#39;);" ms.cmptyp="CodeSnippet">複製</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_87b56b44-9193-4ff5-a105-ac11cfd14967" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>StreamReader sr = <span style="color:Blue;">new</span> StreamReader(filename);
+<span style="color:Blue;">string</span> input;
+<span style="color:Blue;">string</span> pattern = <span style="color:#A31515;">@"\b(\w+)\s\1\b"</span>;
+<span style="color:Blue;">while</span> (sr.Peek() &gt;= 0)
+{
+   input = sr.ReadLine();
+   Regex rgx = <span style="color:Blue;">new</span> Regex(pattern, RegexOptions.IgnoreCase);
+   MatchCollection matches = rgx.Matches(input);
+   <span style="color:Blue;">if</span> (matches.Count &gt; 0)
+   {
+      Console.WriteLine(<span style="color:#A31515;">"{0} ({1} matches):"</span>, input, matches.Count);
+      <span style="color:Blue;">foreach</span> (Match match <span style="color:Blue;">in</span> matches)
+         Console.WriteLine(<span style="color:#A31515;">"   "</span> + match.Value);
+   }
+}
+sr.Close();
+</pre></div>
+        </div>
+    </div>
+</div>
+<p>To prevent recompilation, you should instantiate a single T:System.Text.RegularExpressions.Regex object that is accessible to all code that requires it, as shown in the following rewritten example.</p>
+<div id="code-snippet-3" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-3">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="複製到剪貼簿。" href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_30954cba-e7ec-47b8-8a14-dd761d93ead7&#39;);" ms.cmptyp="CodeSnippet">複製</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_30954cba-e7ec-47b8-8a14-dd761d93ead7" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>StreamReader sr = <span style="color:Blue;">new</span> StreamReader(filename);
+<span style="color:Blue;">string</span> input;
+<span style="color:Blue;">string</span> pattern = <span style="color:#A31515;">@"\b(\w+)\s\1\b"</span>;
+Regex rgx = <span style="color:Blue;">new</span> Regex(pattern, RegexOptions.IgnoreCase);
+
+<span style="color:Blue;">while</span> (sr.Peek() &gt;= 0)
+{
+   input = sr.ReadLine();
+   MatchCollection matches = rgx.Matches(input);
+   <span style="color:Blue;">if</span> (matches.Count &gt; 0)
+   {
+      Console.WriteLine(<span style="color:#A31515;">"{0} ({1} matches):"</span>, input, matches.Count);
+      <span style="color:Blue;">foreach</span> (Match match <span style="color:Blue;">in</span> matches)
+         Console.WriteLine(<span style="color:#A31515;">"   "</span> + match.Value);
+   }
+}
+sr.Close();
+</pre></div>
+        </div>
+    </div>
+</div>
+</li></ul><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#remarks">Back to Remarks</a></p></div></div></div><a id="regex_ops"></a><div><h3 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="Collapse" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Performing Regular Expression Operations</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h3><div class="sectionblock"><div class="section"><p>Whether you decide to instantiate a T:System.Text.RegularExpressions.Regex object and call its methods or call static methods, the T:System.Text.RegularExpressions.Regex class offers the following pattern-matching functionality:</p><ul class="unordered"><li><p>Validation of a match. You call the Overload:System.Text.RegularExpressions.Regex.IsMatch method to determine whether a match is present.</p></li><li><p>Retrieval of a single match. You call the Overload:System.Text.RegularExpressions.Regex.Match method to retrieve a T:System.Text.RegularExpressions.Match object that represents the first match in a string or in part of a string. Subsequent matches can be retrieved by calling the M:System.Text.RegularExpressions.Match.NextMatch method.</p></li><li><p>Retrieval of all matches. You call the Overload:System.Text.RegularExpressions.Regex.Matches method to retrieve a T:System.Text.RegularExpressions.MatchCollection object that represents all the matches found in a string or in part of a string.</p></li><li><p>Replacement of matched text. You call the Overload:System.Text.RegularExpressions.Regex.Replace method to replace matched text. The replacement text can also be defined by a regular expression. In addition, some of the Overload:System.Text.RegularExpressions.Regex.Replace methods include a T:System.Text.RegularExpressions.MatchEvaluator parameter that enables you to programmatically define the replacement text.</p></li><li><p>Creation of a string array that is formed from parts of an input string. You call the Overload:System.Text.RegularExpressions.Regex.Split method to split an input string at positions that are defined by the regular expression.</p></li></ul><p>In addition to its pattern-matching methods, the T:System.Text.RegularExpressions.Regex class includes several special-purpose methods:</p><ul class="unordered"><li><p>The M:System.Text.RegularExpressions.Regex.Escape(System.String) method escapes any characters that may be interpreted as regular expression operators in a regular expression or input string. </p></li><li><p>The M:System.Text.RegularExpressions.Regex.Unescape(System.String) method removes these escape characters. </p></li><li><p>The Overload:System.Text.RegularExpressions.Regex.CompileToAssembly method creates an assembly that contains predefined regular expressions. The .NET Framework contains examples of these special-purpose assemblies in the N:System.Web.RegularExpressions namespace.</p></li></ul><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#remarks">Back to Remarks</a></p></div></div></div><a id="define_timeout"></a><div><h3 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="Collapse" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Defining a Time-Out Value</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h3><div class="sectionblock"><div class="section"><p>The .NET Framework supports a full-featured regular expression language that provides substantial power and flexibility in pattern matching. However, the power and flexibility come at a cost: the risk of poor performance. Regular expressions that perform poorly are surprisingly easy to create. In some cases, regular expression operations that rely on excessive backtracking can appear to stop responding when they process text that nearly matches the regular expression pattern. For more information about the .NET Framework regular expression engine, see Details of Regular Expression Behavior. For more information about excessive backtracking, see Backtracking.</p><p>Starting with the net_v45, you can define a time-out interval for regular expression matches. If the regular expression engine cannot identify a match within this time interval, the matching operation throws a T:System.Text.RegularExpressions.RegexMatchTimeoutException exception. In most cases, this prevents the regular expression engine from wasting processing power by trying to match text that nearly matches the regular expression pattern. It also could indicate, however, that the timeout interval has been set too low, or that the current machine load has caused an overall degradation in performance.</p><p>How you handle the exception depends on the cause of the exception. If the exception occurs because the time-out interval is set too low or because of excessive machine load, you can increase the time-out interval and retry the matching operation. If the exception occurs because the regular expression relies on excessive backtracking, you can assume that a match does not exist, and, optionally, you can log information that will help you modify the regular expression pattern.</p><p>You can set a time-out interval by calling the M:System.Text.RegularExpressions.Regex.#ctor(System.String,System.Text.RegularExpressions.RegexOptions,System.TimeSpan) constructor when you instantiate a regular expression object. For static methods, you can set a time-out interval by calling an overload of a matching method that has a matchTimeout parameter. If you do not set a time-out value explicitly, the default time-out value  is determined as follows:</p><ul class="unordered"><li><p>By using the application-wide time-out value, if one exists. This can be any time-out value that applies to the application domain in which the T:System.Text.RegularExpressions.Regex object is instantiated or the static method call is made. You can set the application-wide time-out value by calling the M:System.AppDomain.SetData(System.String,System.Object) method to assign the string representation of a T:System.TimeSpan value to the "REGEX_DEFAULT_MATCH_TIMEOUT" property.</p></li><li><p>By using the value F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout, if no application-wide time-out value has been set.</p></li></ul><div class="alert"><div class="contentTableWrapper"><table summary="table"><tbody><tr><th align="left" scope="col"><span><img id="s-e6f6a65cf14f462597b64ac058dbe1d0-system-media-system-caps-important" alt="System_CAPS_important" src="./data2_files/IC160177.jpeg" title="System_CAPS_important" xmlns=""></span><span class="alertTitle">重要 </span></th></tr><tr><td><p>We recommend that you set a time-out value in all regular expression pattern-matching operations. For more information, see Best Practices for Regular Expressions in the .NET Framework.</p></td></tr></tbody></table></div></div><p><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#remarks">Back to Remarks</a></p></div></div></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">範例</span></a><div id="Anchor_8" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_8" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><div class="section"><div class="section"><div class="section"><p>The following example uses a regular expression to check for repeated occurrences of words in a string. The regular expression \b(?&lt;word&gt;\w+)\s+(\k&lt;word&gt;)\b can be interpreted as shown in the following table.</p><div class="contentTableWrapper"><table responsive="true" summary="table"><tbody><tr responsive="true"><th scope="col"><p>Pattern</p></th><th scope="col"><p>Description</p></th></tr><tr><td data-th="Pattern"><p><span class="code">\b</span></p></td><td data-th="Description"><p>Start the match at a word boundary.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">(?&lt;word&gt;\w+)</span></p></td><td data-th="Description"><p>Match one or more word characters up to a word boundary. Name this captured group word.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\s+</span></p></td><td data-th="Description"><p>Match one or more white-space characters.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">(\k&lt;word&gt;)</span></p></td><td data-th="Description"><p>Match the captured group that is named word.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\b</span></p></td><td data-th="Description"><p>Match a word boundary.</p></td></tr></tbody></table></div>
+<div id="code-snippet-4" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=cpp#code-snippet-4">C++</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-4">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="複製到剪貼簿。" href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_e372490a-952b-4361-b6ab-59fe064338f8&#39;);" ms.cmptyp="CodeSnippet">複製</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_e372490a-952b-4361-b6ab-59fe064338f8" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre><span style="color:Blue;">using</span> System;
+<span style="color:Blue;">using</span> System.Text.RegularExpressions;
+
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Test
+{
+
+    <span style="color:Blue;">public</span> <span style="color:Blue;">static</span> <span style="color:Blue;">void</span> Main ()
+    {
+
+        <span style="color:Green;">// Define a regular expression for repeated words.</span>
+        Regex rx = <span style="color:Blue;">new</span> Regex(<span style="color:#A31515;">@"\b(?&lt;word&gt;\w+)\s+(\k&lt;word&gt;)\b"</span>,
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+        <span style="color:Green;">// Define a test string.        </span>
+        <span style="color:Blue;">string</span> text = <span style="color:#A31515;">"The the quick brown fox  fox jumped over the lazy dog dog."</span>;
+
+        <span style="color:Green;">// Find matches.</span>
+        MatchCollection matches = rx.Matches(text);
+
+        <span style="color:Green;">// Report the number of matches found.</span>
+        Console.WriteLine(<span style="color:#A31515;">"{0} matches found in:\n   {1}"</span>,
+                          matches.Count,
+                          text);
+
+        <span style="color:Green;">// Report on each match.</span>
+        <span style="color:Blue;">foreach</span> (Match match <span style="color:Blue;">in</span> matches)
+        {
+            GroupCollection groups = match.Groups;
+            Console.WriteLine(<span style="color:#A31515;">"'{0}' repeated at positions {1} and {2}"</span>,
+                              groups[<span style="color:#A31515;">"word"</span>].Value,
+                              groups[0].Index,
+                              groups[1].Index);
+        }
+
+    }
+
+}
+<span style="color:Green;">// The example produces the following output to the console:</span>
+<span style="color:Green;">//       3 matches found in:</span>
+<span style="color:Green;">//          The the quick brown fox  fox jumped over the lazy dog dog.</span>
+<span style="color:Green;">//       'The' repeated at positions 0 and 4</span>
+<span style="color:Green;">//       'fox' repeated at positions 20 and 25</span>
+<span style="color:Green;">//       'dog' repeated at positions 50 and 54</span>
+</pre></div>
+        </div>
+    </div>
+</div>
+<p>The following example illustrates the use of a regular expression to check whether a string either represents a currency value or has the correct format to represent a currency value. In this case, the regular expression is built dynamically from the P:System.Globalization.NumberFormatInfo.CurrencyDecimalSeparator, P:System.Globalization.NumberFormatInfo.CurrencyDecimalDigits, P:System.Globalization.NumberFormatInfo.CurrencySymbol, P:System.Globalization.NumberFormatInfo.NegativeSign, and P:System.Globalization.NumberFormatInfo.PositiveSign properties for the user's current culture. If the system's current culture is en-US, the resulting regular expression is ^\s*[\+-]?\s?\$?\s?(\d*\.?\d{2}?){1}$. This regular expression can be interpreted as shown in the following table.</p><div class="contentTableWrapper"><table responsive="true" summary="table"><tbody><tr responsive="true"><th scope="col"><p>Pattern</p></th><th scope="col"><p>Description</p></th></tr><tr><td data-th="Pattern"><p><span class="code">^</span></p></td><td data-th="Description"><p>Start at the beginning of the string.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\s*</span></p></td><td data-th="Description"><p>Match zero or more white-space characters.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">[\+-]?</span></p></td><td data-th="Description"><p>Match zero or one occurrence of either the positive sign or the negative sign.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\s?</span></p></td><td data-th="Description"><p>Match zero or one white-space character.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\$?</span></p></td><td data-th="Description"><p>Match zero or one occurrence of the dollar sign.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\s?</span></p></td><td data-th="Description"><p>Match zero or one white-space character.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\d*</span></p></td><td data-th="Description"><p>Match zero or more decimal digits.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\.?</span></p></td><td data-th="Description"><p>Match zero or one decimal point symbol.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">\d{2}?</span></p></td><td data-th="Description"><p>Match two decimal digits zero or one time.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">(\d*\.?\d{2}?){1}</span></p></td><td data-th="Description"><p>Match the pattern of integral and fractional digits separated by a decimal point symbol at least one time.</p></td></tr><tr><td data-th="Pattern"><p><span class="code">$</span></p></td><td data-th="Description"><p>Match the end of the string.</p></td></tr></tbody></table></div><p>In this case, the regular expression assumes that a valid currency string does not contain group separator symbols, and that it has either no fractional digits or the number of fractional digits defined by the current culture's P:System.Globalization.NumberFormatInfo.CurrencyDecimalDigits property.</p>
+<div id="code-snippet-5" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabActive" dir="ltr"><a>C#</a></div><div class="codeSnippetContainerTab" dir="ltr"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx?cs-save-lang=1&amp;cs-lang=vb#code-snippet-5">VB</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="複製到剪貼簿。" href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_f188416b-9d85-45ea-aec1-1fc6476477f1&#39;);" ms.cmptyp="CodeSnippet">複製</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_f188416b-9d85-45ea-aec1-1fc6476477f1" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre><span style="color:Blue;">using</span> System;
+<span style="color:Blue;">using</span> System.Globalization;
+<span style="color:Blue;">using</span> System.Text.RegularExpressions;
+
+<span style="color:Blue;">public</span> <span style="color:Blue;">class</span> Example
+{
+   <span style="color:Blue;">public</span> <span style="color:Blue;">static</span> <span style="color:Blue;">void</span> Main()
+   {
+      <span style="color:Green;">// Get the current NumberFormatInfo object to build the regular </span>
+      <span style="color:Green;">// expression pattern dynamically.</span>
+      NumberFormatInfo nfi = NumberFormatInfo.CurrentInfo;
+
+      <span style="color:Green;">// Define the regular expression pattern.</span>
+      <span style="color:Blue;">string</span> pattern;
+      pattern = <span style="color:#A31515;">@"^\s*["</span>;
+      <span style="color:Green;">// Get the positive and negative sign symbols.</span>
+      pattern += Regex.Escape(nfi.PositiveSign + nfi.NegativeSign) + <span style="color:#A31515;">@"]?\s?"</span>;
+      <span style="color:Green;">// Get the currency symbol.</span>
+      pattern += Regex.Escape(nfi.CurrencySymbol) + <span style="color:#A31515;">@"?\s?"</span>;
+      <span style="color:Green;">// Add integral digits to the pattern.</span>
+      pattern += <span style="color:#A31515;">@"(\d*"</span>;
+      <span style="color:Green;">// Add the decimal separator.</span>
+      pattern += Regex.Escape(nfi.CurrencyDecimalSeparator) + <span style="color:#A31515;">"?"</span>;
+      <span style="color:Green;">// Add the fractional digits.</span>
+      pattern += <span style="color:#A31515;">@"\d{"</span>;
+      <span style="color:Green;">// Determine the number of fractional digits in currency values.</span>
+      pattern += nfi.CurrencyDecimalDigits.ToString() + <span style="color:#A31515;">"}?){1}$"</span>;
+
+      Regex rgx = <span style="color:Blue;">new</span> Regex(pattern);
+
+      <span style="color:Green;">// Define some test strings.</span>
+      <span style="color:Blue;">string</span>[] tests = { <span style="color:#A31515;">"-42"</span>, <span style="color:#A31515;">"19.99"</span>, <span style="color:#A31515;">"0.001"</span>, <span style="color:#A31515;">"100 USD"</span>,
+                         <span style="color:#A31515;">".34"</span>, <span style="color:#A31515;">"0.34"</span>, <span style="color:#A31515;">"1,052.21"</span>, <span style="color:#A31515;">"$10.62"</span>,
+                         <span style="color:#A31515;">"+1.43"</span>, <span style="color:#A31515;">"-$0.23"</span> };
+
+      <span style="color:Green;">// Check each test string against the regular expression.</span>
+      <span style="color:Blue;">foreach</span> (<span style="color:Blue;">string</span> test <span style="color:Blue;">in</span> tests)
+      {
+         <span style="color:Blue;">if</span> (rgx.IsMatch(test))
+            Console.WriteLine(<span style="color:#A31515;">"{0} is a currency value."</span>, test);
+         <span style="color:Blue;">else</span>
+            Console.WriteLine(<span style="color:#A31515;">"{0} is not a currency value."</span>, test);
+      }
+   }
+}
+<span style="color:Green;">// The example displays the following output:</span>
+<span style="color:Green;">//       -42 is a currency value.</span>
+<span style="color:Green;">//       19.99 is a currency value.</span>
+<span style="color:Green;">//       0.001 is not a currency value.</span>
+<span style="color:Green;">//       100 USD is not a currency value.</span>
+<span style="color:Green;">//       .34 is a currency value.</span>
+<span style="color:Green;">//       0.34 is a currency value.</span>
+<span style="color:Green;">//       1,052.21 is not a currency value.</span>
+<span style="color:Green;">//       $10.62 is a currency value.</span>
+<span style="color:Green;">//       +1.43 is a currency value.</span>
+<span style="color:Green;">//       -$0.23 is a currency value.</span>
+</pre></div>
+        </div>
+    </div>
+</div>
+<p>Because the regular expression in this example is built dynamically, we do not know at design time whether the current culture's currency symbol, decimal sign, or positive and negative signs might be misinterpreted by the regular expression engine as regular expression language operators. To prevent any misinterpretation, the example passes each dynamically generated string to the M:System.Text.RegularExpressions.Regex.Escape(System.String) method.</p></div></div></div></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">版本資訊</span></a><div id="Anchor_9" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_9" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><strong>通用 Windows 平台</strong><br>自 8 起供應<br><strong>.NET Framework</strong><br>自 1.1 起供應<br><strong>可攜式類別庫</strong><br>提供支援︰
+        <a href="https://msdn.microsoft.com/en-us/library/gg597391.aspx">可攜式 .NET 平台</a><br><strong>Silverlight</strong><br>自 2.0 起供應<br><strong>Windows Phone Silverlight</strong><br>自 7.0 起供應<br><strong>Windows Phone</strong><br>自 8.1 起供應<br></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">執行緒安全</span></a><div id="Anchor_10" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_10" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><p>The T:System.Text.RegularExpressions.Regex class is immutable (read-only) and thread safe. T:System.Text.RegularExpressions.Regex objects can be created on any thread and shared between threads. For more information, see [&lt;topic://cpconThreadSafety&gt;].</p></div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">另請參閱</span></a><div id="Anchor_11" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#Anchor_11" class="LW_CollapsibleArea_Anchor_Img" title="按一下右鍵以複製及分享此章節的連結"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><p><a href="https://msdn.microsoft.com/zh-tw/library/system.configuration.regexstringvalidator(v=vs.110).aspx">RegexStringValidator</a><br><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions(v=vs.110).aspx">System.Text.RegularExpressions 命名空間</a><br><a href="https://msdn.microsoft.com/zh-tw/library/hs600312(v=vs.110).aspx">.NET Framework 規則運算式</a><br><a href="https://msdn.microsoft.com/zh-tw/library/az24scfc(v=vs.110).aspx">規則運算式語言 - 快速參考</a><br><a href="http://download.microsoft.com/download/D/2/4/D240EBF6-A9BA-4E4F-A63F-AEB6DA0B921C/Regular%20expressions%20quick%20reference.docx">Regular Expressions - Quick Reference (download in Word format)</a><br><a href="http://download.microsoft.com/download/D/2/4/D240EBF6-A9BA-4E4F-A63F-AEB6DA0B921C/Regular%20expressions%20quick%20reference.pdf">Regular Expressions - Quick Reference (download in PDF format)</a><br></p></div></div><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#mainBody">回到頁首</a><br></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>顯示:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">受繼承
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">受保護
+        </label>
+    </div>
+</div>
+
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="您目前的篩選器設定沒有可用的成員。">
+    </div>
+<div id="rightNavigationMenu" ms.cmpgrp="right nav">
+    <div id="mobileButtons">
+    </div>
+    <div id="navMain">
+        <div id="closeNavigation">
+            <a class="tocCloseSmall" id="closeButton"></a>
+        </div>
+        <div id="navigationButtons">
+            <a id="isd_print" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(d=printer,v=vs.110).aspx" rel="nofollow"><ins class="print"></ins>列印</a>
+            <a id="isdShare" href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#" role="button" aria-expanded="false">
+                <ins class="share"></ins>分享
+            </a>
+            <div id="socials" style="display: none">
+                <a class="isdFacebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmsdn.microsoft.com%2Fzh-tw%2Flibrary%2Fsystem.text.regularexpressions.regex(v%3Dvs.110).aspx" aria-label="分享到 Facebook">
+                    <ins class="facebook"></ins>
+                </a>
+                <a class="isdTwitter" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fmsdn.microsoft.com%2Fzh-tw%2Flibrary%2Fsystem.text.regularexpressions.regex(v%3Dvs.110).aspx&amp;text=Regex%20%E9%A1%9E%E5%88%A5%20(System.Text.RegularExpressions)&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fmsdn.microsoft.com%2Fzh-tw%2Flibrary%2Fsystem.text.regularexpressions.regex(v%3Dvs.110).aspx" aria-label="分享到 Twitter">
+                    <ins class="twitter"></ins>
+                </a>
+                <a class="isdGooglePlus" href="https://plus.google.com/share?url=https%3A%2F%2Fmsdn.microsoft.com%2Fzh-tw%2Flibrary%2Fsystem.text.regularexpressions.regex(v%3Dvs.110).aspx" aria-label="分享到 Google+">
+                    <ins class="googlePlus"></ins>
+                </a>
+            </div>
+        </div>
+        <div id="indoc_toc" style="" ms.cmpgrp="indoc toc">
+            <div id="indoc_title">本文內容</div>
+            <ul id="indoc_toclist"><li data-index="0" class="active"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#繼承階層">繼承階層</a></li><li data-index="1"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#語法">語法</a></li><li data-index="2"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#建構函式">建構函式</a></li><li data-index="3"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#屬性">屬性</a></li><li data-index="4"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#方法">方法</a></li><li data-index="5"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#欄位">欄位</a></li><li data-index="6"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#明確介面實作">明確介面實作</a></li><li data-index="7"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#註解">註解</a></li><li data-index="8"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#範例">範例</a></li><li data-index="9"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#版本資訊">版本資訊</a></li><li data-index="10"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#執行緒安全">執行緒安全</a></li><li data-index="11"><a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#另請參閱">另請參閱</a></li></ul>
+        </div>
+    </div>
+</div>
+<div id="rightNavigationMenuThumbnail" class="rightNavigationMenuThumbnail">
+</div>
+        </div>
+        <div class="clear"></div>
+
+<input name="__RequestVerificationToken" type="hidden" value="j94azNdxgGxiHiHdA-jJwIj-JspUQ6FmHJigRcG8iYx8aRYQ04fx46pUpj9ksyu5JFqBxjGWOHL7RnYHxZ90JYoM9wE1">
+<input id="ratingValueSubmitUrl" type="hidden" value="https://msdn.microsoft.com/zh-tw/library/feedback/rate/system.text.regularexpressions.regex(v=vs.110).aspx">
+<input id="ratingAdditionalSubmitUrl" type="hidden" value="https://msdn.microsoft.com/zh-tw/library/feedback/additional/system.text.regularexpressions.regex(v=vs.110).aspx">
+<input id="isTopicRated" type="hidden" value="false">
+
+    <div id="lib-footer">
+
+    <link type="text/css" rel="stylesheet">
+
+    <div id="ux-footer" class="" style="" dir="ltr" ms.pgarea="footer">
+
+    <div id="standardRatingBefore" class="clear stdr-container-before"></div>
+    <div id="standardRating" class="stdr-container" ms.pgarea="body" style="width: 1077px; margin-left: 0px; display: block;">
+        <div class="stdr-close" style="display: none;"></div>
+        <div class="stdr-vote stdr-content">
+            <div class="stdr-content">
+                <span class="stdr-votetitle">本頁對您有幫助嗎？</span>
+                <button class="stdr-yes" aria-label="是，此頁面很有幫助">是</button>
+                <button class="stdr-no" aria-label="否，此頁面沒有太大幫助">否</button>
+                <input id="s_ratingValue" type="hidden" value="">
+            </div>
+        </div>
+        <div class="stdr-feedback" style="display: none">
+            <div class="stdr-form">
+                <div class="stdr-fieldtitle">其他意見反應？</div>
+                <textarea class="stdr-detail" rows="6" maxlength="1500"></textarea>
+                <div>
+                    <span class="stdr-count">剩餘 <span class="stdr-charcnt">1500</span> 個字元</span>
+                    <div class="stdr-buttons">
+                        <button class="stdr-provide" aria-label="送出其他意見反應">提交</button>
+                        <button class="stdr-skip" aria-label="略過其他意見反應">略過此項</button>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="stdr-thanks" style="display: none">
+            <div class="stdr-content">
+                <span class="stdr-thankyou">謝謝！</span>
+                <span class="stdr-appreciate">我們非常感謝您提供的意見反應。</span>
+            </div>
+        </div>
+
+        <div id="contentFeedbackQAContainer" style="display: none;"></div>
+    </div>
+    <div id="standardRatingPlaceholder" style="display: none"></div>
+
+        <footer class="top" role="navigation" aria-label="footer">
+            <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+
+  <div class="linkList">
+    <h4 class="linkListTitle">開發人員中心</h4>
+    <ul class="links">
+      <li>
+        <a href="https://dev.windows.com/" id="LeftLinks_2148_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+      </li>
+      <li>
+        <a href="https://dev.office.com/" id="LeftLinks_2148_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/vstudio" id="LeftLinks_2148_4" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+      </li>
+      <li>
+        <a href="https://azure.microsoft.com/zh-tw/documentation/" target="_blank" id="LeftLinks_2148_12" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/developer-centers-msdn" id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">更多資訊...</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            <div id="rightLinks">
+                <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+
+  <div class="linkList">
+    <h4 class="linkListTitle">學習資源</h4>
+    <ul class="links">
+      <li>
+        <a href="https://mva.microsoft.com/" id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+      </li>
+      <li>
+        <a href="https://channel9.msdn.com/" id="CenterLinks1_2151_5" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/magazine/" id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+
+  <div class="linkList">
+    <h4 class="linkListTitle">社群</h4>
+    <ul class="links">
+      <li>
+        <a href="https://social.msdn.microsoft.com/forums/zh-tw/home" id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">論壇</a>
+      </li>
+      <li>
+        <a href="https://blogs.msdn.com/b/developer-tools/" id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">部落格</a>
+      </li>
+      <li>
+        <a href="https://www.codeplex.com/" id="CenterLinks2_2151_10" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+
+  <div class="linkList">
+    <h4 class="linkListTitle">支援</h4>
+    <ul class="links">
+      <li>
+        <a href="https://msdn.microsoft.com/hh361695" id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">自我支援</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml" class="nth-child-4n">
+
+  <div class="linkList">
+    <h4 class="linkListTitle">程式</h4>
+    <ul class="links">
+      <li>
+        <a href="https://bizspark.microsoft.com/" id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark (啟動用)</a>
+      </li>
+      <li>
+        <a href="https://imagine.microsoft.com/" id="CenterLinks4_2151_21" xmlns="http://www.w3.org/1999/xhtml">Microsoft Imagine (for students)</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            </div>
+        </footer>
+
+        <footer class="bottom" role="contentinfo">
+            <span class="localeContainer">
+
+    <form class="selectLocale" id="selectLocaleForm" action="https://msdn.microsoft.com/zh-tw/selectlocale-dmc">
+        <input type="hidden" name="fromPage" value="https%3a%2f%2fmsdn.microsoft.com%2fzh-tw%2flibrary%2fsystem.text.regularexpressions.regex(v%3dvs.110).aspx">
+        <a href="https://msdn.microsoft.com/zh-tw/library/system.text.regularexpressions.regex(v=vs.110).aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="變更您的語言">台灣 (繁體中文)</a>
+    </form>
+            </span>
+
+            <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="https://msdn.microsoft.com/newsletter.aspx" id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">電子報</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/dn529288" id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">隱私權 &amp; cookies</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/cc300389" id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">使用條款</a>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/" id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">商標</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            <span class="logoLegal">
+                <span class="logoSpan clip67x13" role="img" tabindex="0" aria-label="microsoft logo">
+                    <img alt="logo" class="logo" src="./data2_files/HeaderFooterSprite.png">
+                </span>
+                <span class="copyright">© 2017 Microsoft</span>
+            </span>
+        </footer>
+    </div>
+    </div>
+
+        <div class="footerPrintView">
+            <div class="footerCopyrightPrintView">© 2017 Microsoft</div>
+        </div>
+
+    <input id="tocPaddingPerLevel" type="hidden" value="17">
+
+        <input id="MtpsDevice" type="hidden" value="Default">
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+<!--[CDATA[ WebTrends view model not available or IncludeLegacyWebTrendsScriptInGlobal feature flag is off]]-->
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="Ceelrzhaxspn86cJGoePnmznLuyLCTT8lZ861TSUoC_F2O8gmZR7KcdR2dJm3meGmKWxc7I5Y37bEUhuinM2FT5DLC41">
+</div>
+    </div>
+
+<script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"ttf\": \"https://i-msdn.sec.s-msft.com\"\r\n});\r\n/**/" },
+	{ txt: "//\n\n        window.appInsightsId = \u00275eb1b2eb-c47a-497a-a7ac-a1c230b2882f\u0027;\n        //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,3:Breadcrumbs,4:LibraryRightNavigationMenu,4:PrintExportButton,5:StandardRating,2:Footer,0:Topic,3:ResponsiveSupport,0:AppInsightsPerf,3:ResponsiveToc,0:ABTestControl,4:WEDCS,3:CmpgrpForHeader,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Library/Content:3,/Areas/Library/Themes/Base/Content:4,/Areas/Global/Content:5\u0026amp;hashKey=9B821351554FB172FE572BBD060FF016\u0026amp;v=CBB27ECE10E8A2D3633CA402652D8FF7" },
+	{ url: "https://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026minimumTermLength=2\u0026pgArea=header\u0026brand=Msdn\u0026loc=zh-tw\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=搜尋 MSDN" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Areas/Epx/Themes/Base/Content/JumpRedirect.js" },
+	{ txt: "//\n    MTPS = window.MTPS || {};\n    MTPS.Translation = window.MTPS.Translation || {};\n\n    MTPS.Translation.TranslationType =  0;\n    \n    \n        \n        MTPS.Translation.EditorLink = {\n            includeEditor : 0,\n            editLink: \"https://msdn.microsoft.com/zh-tw/library/translation/edit/system.text.regularexpressions.regex(v=vs.110).aspx\",\n            editLinkText: \"建議更好的翻譯\"\n        };\n        \n    //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:jquery.popup,0:Translator;/Areas/Library/Content:0\u0026amp;hashKey=16D24150BAC1A18066CEC17E9B28E03E\u0026amp;v=CBB27ECE10E8A2D3633CA402652D8FF7" },
+	{ txt: "MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = \u0027Expand\u0027; MTPS.LocalizedStrings.CollapseButtonTooltip = \u0027Collapse\u0027; MTPS.LocalizedStrings.EnhancedExpandTooltip = \u0027按一下展開。按兩下全部展開。\u0027; MTPS.LocalizedStrings.EnhancedCollapseTooltip = \u0027按一下摺疊。按兩下全部摺疊。\u0027; MTPS.LocalizedStrings.ExpandAllButtonTooltip = \u0027全部展開\u0027; MTPS.LocalizedStrings.CollapseAllButtonTooltip = \u0027全部摺疊\u0027;" },
+	{ txt: "MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = \u0027Expand\u0027; MTPS.LocalizedStrings.CollapseButtonTooltip = \u0027Collapse\u0027; MTPS.LocalizedStrings.EnhancedExpandTooltip = \u0027按一下展開。按兩下全部展開。\u0027; MTPS.LocalizedStrings.EnhancedCollapseTooltip = \u0027按一下摺疊。按兩下全部摺疊。\u0027; MTPS.LocalizedStrings.ExpandAllButtonTooltip = \u0027全部展開\u0027; MTPS.LocalizedStrings.CollapseAllButtonTooltip = \u0027全部摺疊\u0027;" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=D8D1FFAA6CA68460B7EFA5923975CA44\u0026amp;v=CBB27ECE10E8A2D3633CA402652D8FF7" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+
+<div id="overlayMask"></div><div id="popup-loading0" class="popup-loading" style="display: none; z-index: 210; width: auto; height: auto;">loading...</div><div id="popup0" class="MTPopup" style="display: none; z-index: 210; width: auto; height: auto;"><div class="popup-main" style="z-index: 210;"><div class="popup-inner"></div></div></div><script src="./data2_files/broker-config.js.下載"></script></body></html>

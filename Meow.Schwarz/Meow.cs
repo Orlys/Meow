@@ -1,26 +1,38 @@
-﻿namespace Meow.Schwarz
+﻿// Author: Viyrex(aka Yuyu)
+// Contact: mailto:viyrex.aka.yuyu@gmail.com
+// Github: https://github.com/0x0001F36D
+namespace Meow.Schwarz
 {
-    using Entity;
-    using Entity.Interface;
-    using Entity.Infrastructure;
+    using Auxiliary;
+    using Dynamic;
+    using Infrastructure;
+    using Interface;
     using System;
-    using System.Collections;
     using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
     using System.Text;
-    using System.Dynamic;
-    using Entity.Auxiliary;
 
-    public class Meow : IReadOnlyList<ISegment>
+    public sealed class Meow
     {
-        public ICollection<string> CacheKeys => this._caches.Keys;
+        #region Private Enums
 
-        private readonly IDictionary<string, Invoker> _caches;
+        private enum QMode
+        {
+            List,
+            Route,
+        }
 
-        private readonly List<ISegment> _list;
+        #endregion Private Enums
+
+        #region Private Delegates
+
+        private delegate Iegment Invoker(params object[] args);
+
+        #endregion Private Delegates
+
+        #region Private Constructors
 
         private Meow(string html)
         {
@@ -29,36 +41,58 @@
             this._list = new List<ISegment>(this.Segmenter());
         }
 
-        private delegate IEntitySegment Invoker(params object[] args);
+        #endregion Private Constructors
 
-        private enum QMode
-        {
-            List,
-            Route,
-        }
+        #region Private Fields
+
+        private readonly IDictionary<string, Invoker> _caches;
+
+        private readonly List<ISegment> _list;
+
+        #endregion Private Fields
+
+        #region Public Properties
+
+        public ICollection<string> CacheKeys => this._caches.Keys;
 
         public int Count => this._list.Count;
 
+        public IReadOnlyList<ISegment> Entities => this._list;
+
         public string Raw { get; }
 
+        #endregion Public Properties
+
+        #region Public Indexers
+
         public ISegment this[int index] => this._list[index];
+
+        #endregion Public Indexers
+
+        #region Public Methods
 
         public static Meow Load(string html)
             => new Meow(html?.Trim() ?? throw new ArgumentNullException(nameof(html)));
 
-        public IEnumerator<ISegment> GetEnumerator() => ((IReadOnlyList<ISegment>)this._list).GetEnumerator();
+        public string Layout()
+            => this._list.Aggregate(new StringBuilder(), (sb, q) => sb.Append(q.TextLayout())).ToString();
 
-        IEnumerator IEnumerable.GetEnumerator() => ((IReadOnlyList<ISegment>)this._list).GetEnumerator();
+        public IEnumerable<T> Resolve<T>() where T : Iegment
+                    => this._list.OfType<T>();
 
-        public IEnumerable<T> Query<T>() where T : IEntitySegment
-            => this._list.OfType<T>();
-
-        public IEnumerable<T> Query<T>(Predicate<T> predicate) where T : IEntitySegment
+        public IEnumerable<T> Resolve<T>(Predicate<T> predicate) where T : Iegment
         {
-            foreach (var item in this.Query<T>())
+            foreach (var item in this.Resolve<T>())
                 if (predicate(item))
                     yield return item;
         }
+
+        public IEnumerable<ValueContent> ResolveAllText()
+            => this._list.OfType<IBlockTag>().SelectMany(x => x.OfType<ValueContent>());
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         private Invoker BuildInvoker(ConstructorInfo ctor)
         {
@@ -129,8 +163,7 @@
             IEnumerable<ISegment> r1(IEnumerable<ISegment> segments)
             {
                 var q = new Stack<ISegment>();
-                var delg = default(Invoker);
-                var cache = default(IEntitySegment);
+                var cache = default(Iegment);
 
                 foreach (var seg in segments)
                 {
@@ -150,8 +183,9 @@
                             break;
 
                         case EmptyTag et:
-                            if (_caches.TryGetValue(et.TagName, out delg))
+                            if (_caches.TryGetValue(et.TagName, out var delg))
                                 cache = _caches[et.TagName](((IPosition)et).Start, ((IPosition)et).Stop, et.Source, et.Attributes);
+
                             // not found
                             else if (AppDomain.CurrentDomain
                                      .GetAssemblies()
@@ -196,6 +230,7 @@
                                 var tb = new BlockTag(st, end, r1(l).Reverse().ToList());
                                 if (_caches.TryGetValue(tb.TagName, out delg))
                                     cache = _caches[tb.TagName](tb.StartTag, tb.EndTag, tb.Children);
+
                                 // not found
                                 else if (AppDomain.CurrentDomain
                                          .GetAssemblies()
@@ -209,6 +244,7 @@
                                             typeof(IEnumerable<ISegment>)
                                          }, null) is ConstructorInfo ci)
                                     cache = (_caches[tb.TagName] = this.BuildInvoker(ci))(tb.StartTag, tb.EndTag, tb.Children);
+
                                 // constructor missing
                                 else
                                 {
@@ -231,117 +267,7 @@
                         yield return item;
             }
         }
-        
 
-
-        public IEnumerable<ValueContent> QueryAllText()
-            => this._list.OfType<IBlockTag>().SelectMany(x => x.OfType<ValueContent>());
-
-
-        public string Layout()
-            => this._list.Aggregate(new StringBuilder(), (sb, q) => sb.Append(q.TextLayout())).ToString();
-
-        /*
-        public IEnumerable<IEntitySegment> Route(params string[] tagName)
-        {
-            if (tagName is string[] s)
-            {
-                for (int i = 0; i < s.Length; i++)
-                {
-                    this._list.First()
-                }
-            }
-            yield break;
-        }*/
-    }
-    
-    public sealed class RuntimeTag : RuntimeAttributes, ISegment, IEntitySegment, IAttributeSegment
-    {
-        
-        internal RuntimeTag(BlockTag blockTag):base(blockTag.Attributes)
-        {
-            this._segment = blockTag;
-        }
-
-        private readonly BlockTag _segment;
-
-        public string Block => this._segment.Block;
-
-        public string Source => this._segment.Source;
-
-        public string TagName => this._segment.TagName;
-
-
-        int IPosition.Start => ((IPosition)this._segment).Start;
-
-        int IPosition.Stop => ((IPosition)this._segment).Stop;
-
-        public string TextLayout() => this._segment.TextLayout();
-
-        public string Content => ((IEntitySegment)this._segment).Content;
-
-        public IEnumerator<ISegment> GetEnumerator() => ((IEntitySegment)this._segment).GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
-
-        public Attributes Attributes => ((IAttributeSegment)this._segment).Attributes;
-
-        public static implicit operator BlockTag(RuntimeTag rs)
-            => rs._segment as BlockTag;
-
-        public override string ToString() => this.Block;
-    }
-    public abstract class RuntimeAttributes : IDynamicMetaObjectProvider
-    {
-        protected RuntimeAttributes(Attributes attributes)
-        {
-            this._component = new DynamicComponent(attributes);
-        }
-
-        private readonly IDynamicMetaObjectProvider _component;
-        private class DynamicComponent : DynamicObject
-        {
-            private readonly Attributes _attributes;
-            public DynamicComponent(Attributes attributes)
-            {
-                this._attributes = attributes;
-            }
-            public override bool TryGetMember(GetMemberBinder binder, out object result)
-            {
-                result = this._attributes[binder.Name];
-                return true;
-            }
-            public override bool TrySetMember(SetMemberBinder binder, object value)
-            {
-                this._attributes[binder.Name] = value?.ToString();
-                return true;
-            }
-        }
-        public DynamicMetaObject GetMetaObject(Expression parameter)
-            => new DelegatingMetaObject(_component, parameter, BindingRestrictions.GetTypeRestriction(parameter, this.GetType()), this);
-
-
-        private class DelegatingMetaObject : DynamicMetaObject
-        {
-            private readonly IDynamicMetaObjectProvider innerProvider;
-
-            internal DelegatingMetaObject(IDynamicMetaObjectProvider innerProvider, Expression expr, BindingRestrictions restrictions)
-                : base(expr, restrictions)
-            {
-                this.innerProvider = innerProvider;
-            }
-
-            internal DelegatingMetaObject(IDynamicMetaObjectProvider innerProvider, Expression expr, BindingRestrictions restrictions, object value)
-                : base(expr, restrictions, value)
-            {
-                this.innerProvider = innerProvider;
-            }
-
-            public override DynamicMetaObject BindGetMember(GetMemberBinder binder)
-                => innerProvider.GetMetaObject(Expression.Constant(innerProvider)).BindGetMember(binder);
-
-            public override DynamicMetaObject BindSetMember(SetMemberBinder binder, DynamicMetaObject value)
-                => innerProvider.GetMetaObject(Expression.Constant(innerProvider)).BindSetMember(binder, value);
-
-        }
+        #endregion Private Methods
     }
 }

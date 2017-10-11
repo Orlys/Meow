@@ -1,52 +1,86 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
-using System.IO;
-using Meow.Schwarz;
-using System.Dynamic;
+﻿// Author: Viyrex(aka Yuyu)
+// Contact: mailto:viyrex.aka.yuyu@gmail.com
+// Github: https://github.com/0x0001F36D
 
-using System.ComponentModel;
-using Meow.Schwarz.Entity;
-using System.Linq;
-using System.Diagnostics;
-using System.Reflection.Emit;
-using System.Reflection;
-using System.Linq.Expressions;
-
-namespace Meow.Schwarz
+namespace Meow.Debugger
 {
+    using Meow.Schwarz;
+    using Meow.Schwarz.Dynamic;
+    using System;
+    using System.Linq;
+    using System.Reactive.Linq;
 
-
-    public class program
+    public class Program
     {
+        #region Private Methods
 
-        public static String getguid()
+        private static void Introduction1()
         {
-            return Guid.NewGuid().ToString();
-        }
-        static void Main(string[] args)
-        {
+            var html =
+   @"
+<!Doctype html>
+<html>
+    <head>
+        <title>I am Viyrex.</title>
+    </head>
+    <body>
+        <p class=""introduction"">I'm Viyrex, A student from Taiwan.<br>My motto is 'No pain, no gain'.<br>If you want to contact me , <a href=""https://github.com/0x0001F36D"">Here</a> is my Github page. Have fun coding!
+        </p>
+    </body>
+<html>
+";
 
-            Console.BufferHeight = short.MaxValue - 1;
-            Console.OutputEncoding = Encoding.Unicode;
-
-            var html = File.ReadAllText("data2.html");
             var meow = Meow.Load(html);
 
-            foreach (var ra in meow.Query<RuntimeTag>())
-            {
-                Console.WriteLine(ra.Content);
-            }
-            
+            // 'I am Viyrex.'
+            var title = meow.Resolve<Title>().Single().Content;
 
-            Console.ReadKey();
-            return;
+            // 'https://github.com/0x0001F36D'
+            var github = meow.Resolve<A>().Single().Href;
 
+            Console.WriteLine(title);
+            Console.WriteLine(github);
         }
+
+        private static void Introduction2()
+        {
+            var html = @"<hello description=""i'm runtime-attribute"" yuyu=""fatty liver"">Runtime-Tag</hello>";
+            var tag = Meow.Load(html)
+                        .Resolve<RuntimeTag>()
+                        .Single();
+
+            // hello
+            var tagName = tag.TagName;
+
+            // 'Runtime-Tag'
+            var content = tag.Content;
+
+            // 'i'm runtime-attribute'
+            var description = tag.DynamicAttributes.Description;
+
+            //Just for access attributes.
+            dynamic attributes = tag;
+
+            //'fatty liver'
+            var yuyu = attributes.yuyu;
+
+            Console.WriteLine(tagName);
+            Console.WriteLine(content);
+            Console.WriteLine(description);
+            Console.WriteLine(yuyu);
+        }
+
+        private static void Main(string[] args)
+        {
+            Introduction1();
+            Spilt();
+            Introduction2();
+            Spilt();
+        }
+
+        private static void Spilt()
+                                    => Console.WriteLine("======================================================");
+
+        #endregion Private Methods
     }
-    
-
 }
-
