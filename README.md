@@ -53,3 +53,6 @@ dynamic attributes = tag;
 //'fatty liver'
 var yuyu = attributes.yuyu; 
 ```
+
+## License
+[MIT License](https://github.com/0x0001F36D/Viyrex.Meow/blob/master/LICENSE)
