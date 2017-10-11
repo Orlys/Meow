@@ -4,7 +4,6 @@
 namespace Meow.Schwarz
 {
     using Auxiliary;
-    using Dynamic;
     using Infrastructure;
     using Interface;
     using System;

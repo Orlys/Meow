@@ -5,10 +5,8 @@
 namespace Meow.Debugger
 {
     using Meow.Schwarz;
-    using Meow.Schwarz.Dynamic;
     using System;
     using System.Linq;
-    using System.Reactive.Linq;
 
     public class Program
     {
